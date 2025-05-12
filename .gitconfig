@@ -1,0 +1,58 @@
+[init]
+	defaultBranch = master
+
+[credential "https://github.com"]
+	helper = !/usr/bin/gh auth git-credential
+
+[core]
+	editor = nvim
+  longpaths = false
+
+[user]
+  name = Chris
+  email = chrisoliver345@gmail.com
+
+[alias]
+  # --- Commit & Push Utilities ---
+  amend = commit --amend --no-edit                      # Amend last commit without changing message
+  fpush = push --force-with-lease                       # Force push commit safely
+  fuck = !git amend && git fpush                        # Quick alias to amend and push
+  start = !git init && git commit --allow-empty -m "Initial commit"  # Init a repo with an initial empty commit
+ 
+  # --- Logs & History ---
+  last = log --pretty=slog -1 HEAD                      # Show last commit
+  short = log --oneline --pretty=slog                   # One-line log view
+  first = log --pretty=slog --reverse --max-parents=0 HEAD  # First commit in repo
+
+  # --- Grep/Search ---
+  gg = grep -E --line-number                            # Grep with extended regex and line numbers
+  gga = grep -E --line-number --all-match               # Grep with all-match enabled
+
+  # --- File & Tree Utilities ---
+  ls = ls-files --cached --others --exclude-standard    # List tracked and untracked files
+  unstage = reset HEAD --                               # Unstage changes from index
+  root = !pwd                                           # Show current working directory
+  rootstatus = !git status -s                           # Short status format at root
+
+  # --- Remote Management ---
+  rurl = remote get-url origin                          # Show remote URL
+  rcopy = !git remote get-url origin | clip && echo "Remote URL copied to clipboard"  # Copy remote URL
+
+  # --- Alias Management ---
+  aliases = config --get-regexp alias                   # List all git aliases
+  exportalias = "!f() { in=${1}; out=$(git config --get alias.$in) ; printf 'git config --global alias.%s %q\n' $in \"$out\";};f"  # Export alias as config command
+  copyalias = "!f() { in=${1}; out=$(git config --get alias.$in) ; printf '%q\n' \"$out\" | clip;};f"  # Copy alias to clipboard
+
+  # --- Misc Tools ---
+  # Lists the top 10 most commonly changed files in git
+  churn = !git -p log --all -M -C --name-only \
+      --format='format:' "$@" \
+      | sort \
+      | grep -v '^$' \
+      | uniq -c \
+      | sort -nr \
+      | head -n 10 \
+        | awk '{print $1, $2}'
+
+[pretty]
+  slog = format:%C(yellow)%h %Cred%as %Cblue%an%Cgreen%d %Creset%s
