@@ -36,12 +36,12 @@
 
   # --- Remote Management ---
   rurl = remote get-url origin                          # Show remote URL
-  rcopy = !git remote get-url origin | clip && echo "Remote URL copied to clipboard"  # Copy remote URL
+  rcopy = !git remote get-url origin | xclip && echo "Remote URL copied to clipboard"  # Copy remote URL
 
   # --- Alias Management ---
   aliases = config --get-regexp alias                   # List all git aliases
   exportalias = "!f() { in=${1}; out=$(git config --get alias.$in) ; printf 'git config --global alias.%s %q\n' $in \"$out\";};f"  # Export alias as config command
-  copyalias = "!f() { in=${1}; out=$(git config --get alias.$in) ; printf '%q\n' \"$out\" | clip;};f"  # Copy alias to clipboard
+  copyalias = "!f() { in=${1}; out=$(git config --get alias.$in) ; printf '%q\n' \"$out\" | xclip;};f"  # Copy alias to clipboard
 
   # --- Misc Tools ---
   # Lists the top 10 most commonly changed files in git
