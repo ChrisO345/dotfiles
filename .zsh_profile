@@ -1,0 +1,8 @@
+# Variables
+VIM="nvim"
+
+# Export Variables
+export DOTFILES="$HOME/personal/dotfiles"
+
+# Aliases
+alias cls=clear

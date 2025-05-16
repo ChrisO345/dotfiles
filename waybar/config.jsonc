@@ -23,7 +23,6 @@
         "temperature",
         "backlight",
         "keyboard-state",
-        "sway/language",
         "battery",
         "battery#bat2",
         "clock",
@@ -37,10 +36,12 @@
         "warp-on-scroll": false,
         "format": "{name}: {icon}",
         "format-icons": {
-            "urgent": "",
             "active": "",
             "default": ""
-        }
+        },
+	"persistent-workspaces": {
+	    "*": 5
+	}
     },
     "keyboard-state": {
         "numlock": true,

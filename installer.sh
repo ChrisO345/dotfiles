@@ -1,15 +1,16 @@
 #!/usr/bin/env bash
 
 dry_run="0"
+failed="0"
 
 if [ -z "$CONFIG_HOME" ]; then
   echo "CONFIG_HOME is not set, using ~/.config"
   CONFIG_HOME="$HOME/.config"
 fi
 
-if [ -z "$DEV_ENV" ]; then
-  echo "Environment Variable DEV_ENV needs to be present"
-  exit 1
+if [ -z "$DOTFILES" ]; then
+  echo "Environment Variable DOTFILES needs to be present"
+  failed="1"
 fi
 
 if [[ $1 == "--dry" ]]; then
@@ -27,7 +28,11 @@ log() {
   fi
 }
 
-log "Starting setup for $DEV_ENV"
+if [ "$failed" -eq "1" ]; then
+  echo "FAILED"
+else
+
+log "Starting setup for $DOTFILES"
 
 update_files() {
   log "Copying files from $1"
@@ -62,10 +67,13 @@ copy() {
   fi
 }
 
-log "Copying files from $DEV_ENV"
-copy $DEV_ENV/.gitconfig $HOME/.gitconfig
+log "Copying files from $DOTFILES"
+copy $DOTFILES/.gitconfig $HOME/.gitconfig
+copy $DOTFILES/.zsh_profile $HOME/.zsh_profile
+copy $DOTFILES/.zshrc $HOME/.zshrc
 
-log "Copying folders from $DEV_ENV/env"
-update_files $DEV_ENV/env/.config $CONFIG_HOME
+log "Copying folders from $DOTFILES/env"
+update_files $DOTFILES/env/.config $CONFIG_HOME
 
+fi
 hyprctl reload
