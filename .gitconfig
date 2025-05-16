@@ -1,11 +1,11 @@
 [init]
-	defaultBranch = master
+  defaultBranch = master
 
 [credential "https://github.com"]
-	helper = !/usr/bin/gh auth git-credential
+  helper = !/usr/bin/gh auth git-credential
 
 [core]
-	editor = nvim
+  editor = nvim
   longpaths = false
 
 [user]
@@ -36,7 +36,7 @@
 
   # --- Remote Management ---
   rurl = remote get-url origin                          # Show remote URL
-  rcopy = !git remote get-url origin | xclip && echo "Remote URL copied to clipboard"  # Copy remote URL
+  curl = !git remote get-url origin | xclip && echo "Remote URL copied to clipboard"  # Copy remote URL
 
   # --- Alias Management ---
   aliases = config --get-regexp alias                   # List all git aliases

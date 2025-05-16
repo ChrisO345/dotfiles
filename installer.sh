@@ -67,3 +67,5 @@ copy $DEV_ENV/.gitconfig $HOME/.gitconfig
 
 log "Copying folders from $DEV_ENV/env"
 update_files $DEV_ENV/env/.config $CONFIG_HOME
+
+hyprctl reload
