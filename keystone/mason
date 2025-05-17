@@ -2,14 +2,15 @@
 dry_run="0"
 failed="0"
 
-# TODO: change CONFIG_HOME to $XDG_CONFIG_HOME
-if [ -z "$CONFIG_HOME" ]; then
-  echo "CONFIG_HOME is not set, using ~/.config"
+if [ -z "$XDG_CONFIG_HOME" ]; then
+  echo -e "\033[31mXDG_CONFIG_HOME is not set, using ~/.config\033[0m"
   CONFIG_HOME="$HOME/.config"
+else
+  CONFIG_HOME="$XDG_CONFIG_HOME"
 fi
 
 if [ -z "$DOTFILES" ]; then
-  echo "Environment Variable DOTFILES needs to be present"
+  echo -e "\033[31mEnvironment Variable DOTFILES needs to be present\033[0m"
   failed="1"
 fi
 
@@ -76,4 +77,3 @@ log "Copying folders from $DOTFILES/"
 update_files $DOTFILES/config/ $CONFIG_HOME
 
 fi
-hyprctl reload
