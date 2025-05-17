@@ -6,3 +6,4 @@ export DOTFILES="$HOME/personal/dotfiles"
 
 # Aliases
 alias cls=clear
+alias la="ls -a"

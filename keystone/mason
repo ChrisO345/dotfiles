@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-
 dry_run="0"
 failed="0"
 
+# TODO: change CONFIG_HOME to $XDG_CONFIG_HOME
 if [ -z "$CONFIG_HOME" ]; then
   echo "CONFIG_HOME is not set, using ~/.config"
   CONFIG_HOME="$HOME/.config"
@@ -68,12 +68,12 @@ copy() {
 }
 
 log "Copying files from $DOTFILES"
-copy $DOTFILES/.gitconfig $HOME/.gitconfig
-copy $DOTFILES/.zsh_profile $HOME/.zsh_profile
-copy $DOTFILES/.zshrc $HOME/.zshrc
+copy $DOTFILES/config/.gitconfig $HOME/.gitconfig
+copy $DOTFILES/config/.zsh_profile $HOME/.zsh_profile
+copy $DOTFILES/config/.zshrc $HOME/.zshrc
 
-log "Copying folders from $DOTFILES/env"
-update_files $DOTFILES/env/.config $CONFIG_HOME
+log "Copying folders from $DOTFILES/"
+update_files $DOTFILES/config/ $CONFIG_HOME
 
 fi
 hyprctl reload

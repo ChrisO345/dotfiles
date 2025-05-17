@@ -1,0 +1,17 @@
+#!usr/bin/env bash
+
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+echo "[keystone] Bootstrapping..."
+
+# Call Submodules
+"$SCRIPT_DIR/mason" "$@"
+
+# Future:
+# ./smith
+# ./pillar
+# ./vault
+
+echo "[keystone] Done"
