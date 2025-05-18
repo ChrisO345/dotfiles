@@ -36,9 +36,15 @@ tooltip {
     color: #dde8ed;
 }
 
-#clock:hover, #custom-notification:hover, #network:hover, #cpu:hover,#memory:hover,#temperature:hover {
+#clock:hover, #custom-notification:hover, #network:hover, #cpu:hover, #memory:hover, #temperature:hover, #custom-shutdown:hover {
     transition: all .3s ease;
     color:#b9d9d5;
+}
+
+#custom-shutdown {
+    padding: 0px 10px;
+    transition: all .3s ease;
+    color:#dde8ed;
 }
 
 #custom-notification {
@@ -147,3 +153,4 @@ tooltip {
     padding: 0px 5px;
     transition: all .3s ease; 
 }
+
