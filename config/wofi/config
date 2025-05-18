@@ -1,0 +1,12 @@
+mode=drun,run
+term=ghostty
+hide_scroll=false
+insensitive=true
+location=center
+no_actions=true
+height=45%
+width=45%
+prompt=Search...
+allow_images=true
+allow_markup=true
+image_size=20
