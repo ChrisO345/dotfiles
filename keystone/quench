@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+echo -e "\033[33m[quench] Reloading Environments...\033[0m"
+
+hyprctl reload > /dev/null
+echo -e "\033[32m[quench] Reloaded Hyprland\033[0m"
+
+zsh -c "source $ZDOTDIR/.zshrc"
+echo -e "\033[32m[quench] Reloading ZShell\033[0m"

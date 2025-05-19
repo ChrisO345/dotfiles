@@ -1,26 +1,43 @@
-#!usr/bin/env bash
+#!/usr/bin/env bash
 
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/lib/scribe"
 
-echo -e """\033[33m
+log warn """${BOLD}
     __ __                __                 
    / //_/__  __  _______/ /_____  ____  ___ 
   / ,< / _ \\/ / / / ___/ __/ __ \\/ __ \\/ _ \\
  / /| /  __/ /_/ (__  ) /_/ /_/ / / / /  __/
 /_/ |_\\___/\\__, /____/\\__/\\____/_/ /_/\\___/ 
           /____/                            
-\033[0m"""
+"""
 
-# Call Submodules
-"$SCRIPT_DIR/mason" "$@"
+# TODO: Determine the order that these need to be called
+MASON="$SCRIPT_DIR/mason"
+PILLAR="$SCRIPT_DIR/pillar"
+QUENCH="$SCRIPT_DIR/quench"
+SMITH="$SCRIPT_DIR/smith"
 
-# Future:
-# ./smith
-# ./pillar
-# ./vault
+if [ -f "$MASON" ]; then
+    chmod +x "$MASON"
+    "$MASON" "$@"
+fi
 
-hyprctl reload > /dev/null
+if [ -f "$SMITH" ]; then
+    chmod +x "$SMITH"
+    "$SMITH" "$@"
+fi
 
-echo -e "\033[32mSuccess\033[0m"
+if [ -f "$PILLAR" ]; then
+    chmod +x "$PILLAR"
+    "$PILLAR" "$@"
+fi
+
+if [ -f "$QUENCH" ]; then
+    chmod +x "$QUENCH"
+    "$QUENCH" "$@"
+fi
+
+log success "Success"
