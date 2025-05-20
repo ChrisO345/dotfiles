@@ -8,8 +8,8 @@ autoload -U compinit && compinit
 autoload -U colors && colors
 
 # Completion Settings
-zstyle ':completion:*' menu select
-zstyle ':completion:*' special-dirs true
+# zstyle ':completion:*' menu select
+zstyle ':completion:*' special-dirs false
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} ma=0\;33
 zstyle ':completion:*' squeeze-slashes false
 
