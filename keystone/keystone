@@ -5,39 +5,42 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$SCRIPT_DIR/lib/scribe"
 
-log warn """${BOLD}
+log title """
     __ __                __                 
    / //_/__  __  _______/ /_____  ____  ___ 
   / ,< / _ \\/ / / / ___/ __/ __ \\/ __ \\/ _ \\
- / /| /  __/ /_/ (__  ) /_/ /_/ / / / /  __/
+ / /| /  __/ /_/ /__  / /_/ /_/ / / / /  __/
 /_/ |_\\___/\\__, /____/\\__/\\____/_/ /_/\\___/ 
           /____/                            
 """
 
-# TODO: Determine the order that these need to be called
+# Tool paths
 MASON="$SCRIPT_DIR/mason"
 PILLAR="$SCRIPT_DIR/pillar"
 QUENCH="$SCRIPT_DIR/quench"
 SMITH="$SCRIPT_DIR/smith"
+VAULT="$SCRIPT_DIR/vault"
 
-if [ -f "$MASON" ]; then
-    chmod +x "$MASON"
-    "$MASON" "$@"
-fi
+run_tool() {
+  local tool_path="$1"
+  local tool_name
+  tool_name="$(basename "$tool_path")"
 
-if [ -f "$SMITH" ]; then
-    chmod +x "$SMITH"
-    "$SMITH" "$@"
-fi
+  if [ -f "$tool_path" ]; then
+    log action "Running $tool_name"
+    chmod +x "$tool_path"
+    "$tool_path" "$@"
+    log success "Completed $tool_name"
+  else
+    log skip "Skipping $tool_name, file not found"
+  fi
+}
 
-if [ -f "$PILLAR" ]; then
-    chmod +x "$PILLAR"
-    "$PILLAR" "$@"
-fi
+# Execution order TBD
+run_tool "$MASON" "$@"
+run_tool "$SMITH" "$@"
+run_tool "$PILLAR" "$@"
+run_tool "$QUENCH" "$@"
+run_tool "$VAULT" "$@"
 
-if [ -f "$QUENCH" ]; then
-    chmod +x "$QUENCH"
-    "$QUENCH" "$@"
-fi
-
-log success "Success"
+log finish "\nAll available keystone tools executed"

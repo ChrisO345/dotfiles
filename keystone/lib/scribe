@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#  scribe - ANSI-colored logging system
+# scribe - ANSI-colored logging system
 set -e
 
 RESET="\033[0m"
@@ -13,6 +13,7 @@ FG_BLUE="\033[34m"
 FG_MAGENTA="\033[35m"
 FG_CYAN="\033[36m"
 FG_WHITE="\033[37m"
+FG_GREY="\033[90m"
 
 log() {
     local level="$1"
@@ -20,15 +21,27 @@ log() {
     local message="$*"
     local color
 
+    local caller_file="${BASH_SOURCE[1]##*/}"
+
     case "$level" in
-        info)    color="$FG_RED";;
-	success) color="$FG_GREEN";;
-	warn)    color="$FG_YELLOW";;
-	error)   color="$FG_RED";;
-	action)  color="$FG_CYAN";;
-	debug)   color="$FG_MAGENTA";;
-	*)       color="$FG_WHITE";;
+        info)    color="$FG_BLUE";;
+        success) color="$FG_GREEN";;
+        warn)    color="$FG_YELLOW";;
+        error)   color="$FG_RED";;
+        fatal)   color="$BOLD$FG_RED";;
+        action)  color="$FG_CYAN";;
+        debug)   color="$FG_MAGENTA";;
+        trace)   color="$FG_GREY";;
+        note)    color="$FG_WHITE";;
+        skip)    color="$FG_YELLOW";;
+	title)   color="$BOLD$FG_YELLOW";;
+	finish)  color="$BOLD$FG_GREEN";;
+        *)       color="$FG_WHITE";;
     esac
 
+    if [ $caller_file != "keystone" ]; then
+	message="  ${message}"
+    fi
     echo -e "${color}${message}${RESET}"
 }
+

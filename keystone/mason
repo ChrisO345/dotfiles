@@ -1,56 +1,46 @@
 #!/usr/bin/env bash
+
+set -e
+
+MAX_DIR_NAME_LENGTH=10
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/lib/scribe"
+
 dry_run="0"
 failed="0"
 
 if [ -z "$XDG_CONFIG_HOME" ]; then
-  echo -e "\033[31mXDG_CONFIG_HOME is not set, using ~/.config\033[0m"
+  log note "XDG_CONFIG_HOME not set, defaulting to ~/.config"
   CONFIG_HOME="$HOME/.config"
 else
   CONFIG_HOME="$XDG_CONFIG_HOME"
 fi
 
 if [ -z "$DOTFILES" ]; then
-  echo -e "\033[31mEnvironment Variable DOTFILES needs to be present\033[0m"
+  log fatal "Environment variable \$DOTFILES must be set"
   failed="1"
 fi
 
-if [[ $1 == "--dry" ]]; then
-  dry_run="1"
-  shift
+if [ "$failed" -eq "1" ]; then
+  log error "Dotfiles setup aborted"
+  exit 1
 fi
 
-log() {
-  local message="$1"
-  local color="35"
-  if [ "$dry_run" -eq "0" ]; then
-    echo -e "\033[${color}m$message\033[0m"
-  else
-    echo -e "\033[33m[DRY RUN] \033[${color}m$message\033[0m"
-  fi
-}
+log action "Beginning dotfiles setup from: $DOTFILES"
 
-if [ "$failed" -eq "1" ]; then
-  echo "FAILED"
-else
-
-log "Starting setup for $DOTFILES"
-
-update_files() {
-  log "Copying files from $1"
-  pushd $1 &>/dev/null
+update_folders() {
+  pushd "$1" &>/dev/null
   (
     configs=$(find . -mindepth 1 -maxdepth 1 -type d)
     for c in $configs; do
-      directory=${2%/}/${c#./}
-      log "    Removing: rm -rf $directory"
-
+      directory="${2%/}/${c#./}"
       if [[ $dry_run == "0" ]]; then
-        rm -rf $directory
-      fi
-
-      log "    Copying Directory: cp $c $2"
-      if [[ $dry_run == "0" ]]; then
-        cp -r ./$c $2
+        rm -rf "$directory"
+        cp -r "./$c" "$2"
+        folder=$(basename "$c")
+        printf -v padded_c "%-${MAX_DIR_NAME_LENGTH}s" "$folder"
+        log info "Replacing directory: $(basename "$1")/${padded_c} -> $2/$folder"
       fi
     done
   )
@@ -58,21 +48,23 @@ update_files() {
 }
 
 copy() {
-  log "    Removing: $2"
+  local src_file
+  src_file=$(basename "$1")
+
+  printf -v padded_src "%-${MAX_DIR_NAME_LENGTH}s" "$src_file"
   if [[ $dry_run == "0" ]]; then
-    rm $2
-  fi
-  log "    Copying: $1 to $2"
-  if [[ $dry_run == "0" ]]; then
-    cp $1 $2
+    rm -f "$2"
+    cp "$1" "$2"
+    log info "Copied: $padded_src -> $2"
   fi
 }
 
-log "Copying files from $DOTFILES"
-copy $DOTFILES/config/.gitconfig $HOME/.gitconfig
-copy $DOTFILES/config/.zprofile $HOME/.zprofile
+log action "Copying individual config files"
+copy "$DOTFILES/config/.gitconfig" "$HOME/.gitconfig"
+copy "$DOTFILES/config/.zprofile" "$HOME/.zprofile"
+copy "$DOTFILES/config/starship.toml" "$HOME/.config/starship.toml"
 
-log "Copying folders from $DOTFILES/"
-update_files $DOTFILES/config/ $CONFIG_HOME
+log action "Copying config directories"
+update_folders "$DOTFILES/config/" "$CONFIG_HOME"
 
-fi
+log success "Dotfiles setup completed successfully"

@@ -1,9 +1,19 @@
 #!/usr/bin/env bash
 
-echo -e "\033[33m[quench] Reloading Environments...\033[0m"
+source "$(dirname "${BASH_SOURCE[0]}")/lib/scribe"
 
-hyprctl reload > /dev/null
-echo -e "\033[32m[quench] Reloaded Hyprland\033[0m"
+log action "Starting environment reload..."
 
-zsh -c "source $ZDOTDIR/.zshrc"
-echo -e "\033[32m[quench] Reloading ZShell\033[0m"
+log info "Reloading Hyprland..."
+if hyprctl reload > /dev/null 2>&1; then
+  log success "Hyprland reloaded successfully"
+else
+  log error "Failed to reload Hyprland"
+fi
+
+log info "Reloading ZShell..."
+if zsh -c "source $ZDOTDIR/.zshrc"; then
+  log success "ZShell reloaded successfully"
+else
+  log error "Failed to reload ZShell"
+fi
