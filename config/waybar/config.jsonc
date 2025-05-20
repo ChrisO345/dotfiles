@@ -52,7 +52,7 @@
 
   "custom/shutdown": {
     "format": "⏻",
-    "on-click": "shutdown now",
+    "on-click": "bash $XDG_CONFIG_HOME/waybar/scripts/power_menu.sh",
     "tooltip": true,
     "tooltip-format": "⏻ Shutdown Now"
   },

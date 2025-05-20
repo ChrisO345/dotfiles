@@ -17,7 +17,7 @@
   amend = commit --amend --no-edit                      # Amend last commit without changing message
   fpush = push --force-with-lease                       # Force push commit safely
   fuck = !git amend && git fpush                        # Quick alias to amend and push
-  start = !git init && git commit --allow-empty -m "Initial commit"  # Init a repo with an initial empty commit
+  start = !git init && git commit --allow-empty -m \"Initial Commit\"  # Init a repo with an initial empty commit
  
   # --- Logs & History ---
   last = log --pretty=slog -1 HEAD                      # Show last commit
