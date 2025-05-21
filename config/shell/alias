@@ -18,4 +18,9 @@ alias la="ls -A --color=auto --group-directories-first"
 alias grep="grep --color=auto"
 
 # Convenience / Safety
-alias fk="sudo !!"
+fk() {
+  sudo "$(fc -ln -1)"
+}
+
+# Git Shortcuts
+alias gs="git status"

@@ -18,6 +18,7 @@
   fpush = push --force-with-lease                       # Force push commit safely
   fuck = !git amend && git fpush                        # Quick alias to amend and push
   start = !git init && git commit --allow-empty -m \"Initial Commit\"  # Init a repo with an initial empty commit
+  lose = !git add . && git stash && git stash drop
  
   # --- Logs & History ---
   last = log --pretty=slog -1 HEAD                      # Show last commit
@@ -56,3 +57,6 @@
 
 [pretty]
   slog = format:%C(yellow)%h %Cred%as %Cblue%an%Cgreen%d %Creset%s
+
+[url "https://github.com/chriso345/"]
+    insteadOf = gh:

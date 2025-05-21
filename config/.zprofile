@@ -2,9 +2,10 @@
 
 # Default Programs
 export EDITOR="nvim"
-export TERM="ghostty"
-export TERMINAL="ghostty"
-export BROWSER="google-chrome"
+export SHELL="zsh"
+export TERM="xterm-ghostty"
+export TERMINAL="xterm-ghostty"
+export BROWSER="google-chrome-stable"
 
 # XDG Base Directory Specification
 export XDG_CONFIG_HOME="$HOME/.config"

@@ -1,8 +1,11 @@
-@define-color lavender #b4befe;
-@define-color bg-color #282c34;
-@define-color	mauve  #cba6f7;
-@define-color	text  #cdd6f4;
+@define-color ocean-blue #1B2B34;
+@define-color deep-sea #16232E;
+@define-color coral #FF6F61;
+@define-color seafoam #70C1B3;
+@define-color text-color #DCEFF4;
+@define-color highlight #2A8BCF; /* Ocean blue highlight for text */
 
+/* Global */
 * {
   font-family: 'JetBrainsMonoNL Nerd Font', monospace;
   font-size: 18px;
@@ -11,71 +14,87 @@
 /* Window */
 window {
   margin: 0px;
-  padding: 10px;
-  border: 2px solid @lavender;
-  border-radius: 8px;
-  background-color: @bg-color;
+  padding: 8px;
+  border: 2px solid @highlight;
+  border-radius: 12px;
+  background-color: @deep-sea;
+  box-shadow: 0 4px 10px rgba(31, 65, 85, 0.5);
 }
 
 /* Inner Box */
 #inner-box {
-  margin: 5px;
-  padding: 10px;
+  margin: 3px;
+  padding: 8px;
   border: none;
-  background-color: @bg-color;
+  background-color: @ocean-blue;
+  border-radius: 8px;
 }
 
 /* Outer Box */
 #outer-box {
-  margin: 5px;
-  padding: 10px;
+  margin: 3px;
+  padding: 8px;
   border: none;
-  background-color: @bg-color;
+  background-color: transparent;
 }
 
 /* Scroll */
 #scroll {
-  margin: 0px;
-  padding: 10px;
+  margin: 0;
+  padding: 8px;
   border: none;
-  background-color: @bg-color;
+  background-color: transparent;
 }
 
-/* Input */
+/* Input (hidden) */
 #input {
   display: none;
   margin: -1000px 5px;
 }
 
 #input * {
-  outline: 4px solid @red!important;
+  outline: 4px solid @coral !important;
 }
 
 /* Text */
 #text {
-  margin: 5px;
+  margin: 4px;
   border: none;
-  color: @text;
+  color: @text-color;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: color 0.25s ease;
 }
 
+/* Entry */
 #entry {
-  background-color: @bg-color;
+  background-color: transparent;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
+/* Arrow */
 #entry arrow {
   border: none;
-  color: @lavender;
+  color: @seafoam;
 }
 
 /* Selected Entry */
 #entry:selected {
-  border: 0.11em solid @lavender;
+  background-color: transparent; /* no background highlight */
+  border: none;
 }
 
 #entry:selected #text {
-  color: @mauve;
+  color: @highlight; /* highlight text only */
+  font-weight: 700;
+  text-shadow: 0 0 5px @highlight;
 }
 
+/* Active Drop */
 #entry:drop(active) {
-  background-color: @lavender!important;
+  background-color: @coral !important;
+  color: @text-color !important;
+  font-weight: 700;
 }
