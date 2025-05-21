@@ -1,7 +1,7 @@
-@define-color lavender #b4befe;
-@define-color bg-color #282c34;
-@define-color	mauve  #cba6f7;
-@define-color	text  #cdd6f4;
+@define-color cyan       #b8f3f5;   /* Lightest cyan from the left side */
+@define-color bg-color   #0d1d24;   /* Dark navy background, rightmost part */
+@define-color turquoise  #3ccfd0;   /* Bright turquoise from the middle */
+@define-color text-col   #aeeff1;   /* Light cyan for text */
 
 * {
   font-family: 'JetBrainsMonoNL Nerd Font', monospace;
@@ -12,7 +12,7 @@
 window {
   margin: 0px;
   padding: 10px;
-  border: 2px solid @lavender;
+  border: 2px solid @cyan;
   border-radius: 8px;
   background-color: @bg-color;
 }
@@ -68,18 +68,18 @@ window {
 
 #entry arrow {
   border: none;
-  color: @lavender;
+  color: @cyan;
 }
 
 /* Selected Entry */
 #entry:selected {
-  border: 0.11em solid @lavender;
+  border: 0.11em solid @cyan;
 }
 
 #entry:selected #text {
-  color: @mauve;
+  color: @turquoise;
 }
 
 #entry:drop(active) {
-  background-color: @lavender!important;
+  background-color: @cyan!important;
 }
