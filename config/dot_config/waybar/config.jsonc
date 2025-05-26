@@ -54,7 +54,7 @@
     "format": "⏻",
     "on-click": "bash $XDG_CONFIG_HOME/waybar/scripts/power_menu.sh",
     "tooltip": true,
-    "tooltip-format": "⏻ Shutdown Now"
+    "tooltip-format": "Open Shutdown Menu",
   },
 
   "custom/expand": {

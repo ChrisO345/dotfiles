@@ -62,9 +62,9 @@ copy() {
 log action "Copying individual config files"
 copy "$DOTFILES/config/.gitconfig" "$HOME/.gitconfig"
 copy "$DOTFILES/config/.zprofile" "$HOME/.zprofile"
-copy "$DOTFILES/config/starship.toml" "$HOME/.config/starship.toml"
+copy "$DOTFILES/config/dot_config/starship.toml" "$CONFIG_HOME/starship.toml"
 
 log action "Copying config directories"
-update_folders "$DOTFILES/config/" "$CONFIG_HOME"
+update_folders "$DOTFILES/config/dot_config/" "$CONFIG_HOME"
 
 log success "Dotfiles setup completed successfully"

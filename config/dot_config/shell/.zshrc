@@ -7,10 +7,13 @@ zmodload zsh/complist
 autoload -U compinit && compinit
 autoload -U colors && colors
 
+# Load Direcolors
+eval "$(dircolors -b $XDG_CONFIG_HOME/shell/.dircolors)"
+
 # Completion Settings
 # zstyle ':completion:*' menu select
 zstyle ':completion:*' special-dirs false
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} ma=0\;33
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' squeeze-slashes false
 
 # Shell Options
@@ -38,17 +41,11 @@ HISTCONTROL=ignoreboth      # Ignore duplicates and commands starting with space
 source <(fzf --zsh)
 
 # Key Bindings
-bindkey "^a" beginning-of-line
-bindkey "^e" end-of-line
-bindkey "^k" kill-line
-bindkey "^j" backward-word
-bindkey "^k" forward-word
-bindkey "^H" backward-kill-word
+bindkey -e  # Use Emacs key bindings to disable modal editing
+bindkey '^[[Z' reverse-menu-complete
 
 # History Navigation Bindings
-bindkey "^J" history-search-forward
 bindkey "^[[B" history-search-forward
-bindkey "^K" history-search-backward
 bindkey "^[[A" history-search-backward
 bindkey "^R" fzf-history-widget
 
