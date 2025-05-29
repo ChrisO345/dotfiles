@@ -39,8 +39,8 @@ run_tool() {
 # Execution order TBD
 run_tool "$MASON" "$@"
 run_tool "$SMITH" "$@"
-run_tool "$PILLAR" "$@"
+# run_tool "$PILLAR" "$@"
 run_tool "$QUENCH" "$@"
-run_tool "$VAULT" "$@"
+# run_tool "$VAULT" "$@"
 
 log finish "\nAll available keystone tools executed"

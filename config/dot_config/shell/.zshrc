@@ -1,13 +1,13 @@
 # Load Shell Config Files
-[ -f "$XDG_CONFIG_HOME/shell/alias" ] && source "$XDG_CONFIG_HOME/shell/alias"
-[ -f "$XDG_CONFIG_HOME/shell/vars" ] && source "$XDG_CONFIG_HOME/shell/vars"
+[ -f "$XDG_CONFIG_HOME/shell/alias.sh" ] && source "$XDG_CONFIG_HOME/shell/alias.sh"
+[ -f "$XDG_CONFIG_HOME/shell/vars.sh" ] && source "$XDG_CONFIG_HOME/shell/vars.sh"
 
 # Enable Zsh Modules
 zmodload zsh/complist
 autoload -U compinit && compinit
 autoload -U colors && colors
 
-# Load Direcolors
+# Load Dircolors
 eval "$(dircolors -b $XDG_CONFIG_HOME/shell/.dircolors)"
 
 # Completion Settings
@@ -55,5 +55,6 @@ NEWLINE=$'\n'
 # Dotfiles Installer Alias
 alias keystone='bash "$DOTFILES/keystone/keystone"'
 
-# Load Starship Prompt
+# Initialise Plugins
+eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"

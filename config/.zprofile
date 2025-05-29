@@ -15,6 +15,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 # User Paths and Dotfiles
 export ZDOTDIR="$XDG_CONFIG_HOME/shell"
 export DOTFILES="$HOME/personal/dotfiles"
+export SCRIPT_BIN="$HOME/.local/bin"
 export HYPRSHOT_DIR="$HOME/pictures/screenshots"
 
 # Program-Specific Environment Variables

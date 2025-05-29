@@ -52,7 +52,7 @@
 
   "custom/shutdown": {
     "format": "⏻",
-    "on-click": "bash $XDG_CONFIG_HOME/waybar/scripts/power_menu.sh",
+    "on-click": "bash $SCRIPT_BIN/wofi_power",
     "tooltip": true,
     "tooltip-format": "Open Shutdown Menu",
   },

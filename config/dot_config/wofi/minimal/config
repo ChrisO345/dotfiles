@@ -1,0 +1,9 @@
+mode=drun,run
+term=ghostty
+hide_scroll=true
+insensitive=true
+location=top-right
+no_actions=true
+height=45%
+width=45%
+hide_search=true

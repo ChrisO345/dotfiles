@@ -6,7 +6,7 @@ OPTIONS=(
   "⎋ Logout"
 )
 
-POWER_CONFIG_DIR="$XDG_CONFIG_HOME/wofi/power_menu"
+POWER_CONFIG_DIR="$XDG_CONFIG_HOME/wofi/minimal"
 
 # Determine the number of lines to display in the menu (+1 for the prompt)
 NUM_OPTIONS=$((${#OPTIONS[@]} + 1))

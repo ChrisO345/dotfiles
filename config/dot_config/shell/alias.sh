@@ -16,11 +16,7 @@ alias la="ls -A --color=auto --group-directories-first"
 
 # Improved Tools
 alias grep="grep --color=auto"
-
-# Convenience / Safety
-fk() {
-  sudo "$(fc -ln -1)"
-}
+alias ctree="tree -a -I '.git|node_modules|bower_components|vendor' --dirsfirst | wl-copy"
 
 # Git Shortcuts
 alias gs="git status"
