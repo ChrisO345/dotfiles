@@ -49,6 +49,11 @@ bindkey "^[[B" history-search-forward
 bindkey "^[[A" history-search-backward
 bindkey "^R" fzf-history-widget
 
+# Allow the use of extra ctrl keys
+bindkey "^[[3~" delete-char
+bindkey "^[[H" beginning-of-line
+bindkey "^[[F" end-of-line
+
 # Prompt Configuration
 NEWLINE=$'\n'
 

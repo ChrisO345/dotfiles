@@ -1,7 +1,6 @@
 # General Shortcuts
 alias cls="clear"
 alias v="nvim"
-alias f="fff"
 alias shell="exec \$SHELL -l"
 
 # File & Directory Operations
@@ -10,13 +9,14 @@ alias rm="rm -Iv"
 alias df="df -h"
 alias du="du -h -d 1"
 
-# LS Variants
-alias ls="ls --color=auto --group-directories-first"
-alias la="ls -A --color=auto --group-directories-first"
+# Variants, TODO: get eza installed and working
+alias ls="eza --icons --group-directories-first"
+alias la="eza -a --icons --group-directories-first"
+alias cd="z"
 
 # Improved Tools
 alias grep="grep --color=auto"
 alias ctree="tree -a -I '.git|node_modules|bower_components|vendor' --dirsfirst | wl-copy"
 
 # Git Shortcuts
-alias gs="git status"
+alias gis="git status"

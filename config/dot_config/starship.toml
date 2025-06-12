@@ -82,6 +82,9 @@ symbol = " "
 [kotlin]
 symbol = " "
 
+# [latex]
+# symbol = " "
+
 [lua]
 symbol = " "
 
@@ -182,6 +185,11 @@ symbol = " "
 
 [swift]
 symbol = " "
+
+[typst]
+detect_extensions = ["typ", "typst"]
+detect_files = ["typst.toml"]
+symbol = " "
 
 [zig]
 symbol = " "

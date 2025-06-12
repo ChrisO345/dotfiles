@@ -53,4 +53,4 @@ log action "Validating directories"
 mkdir -p "$HOME/.local/bin"
 
 log action "Beginning shell scripts setup from: $DOTFILES"
-copy_with_prefix "$DOTFILES/scripts/wofi" "$SCRIPT_BIN"
+copy_with_prefix "$DOTFILES/scripts/anyrun" "$SCRIPT_BIN"
