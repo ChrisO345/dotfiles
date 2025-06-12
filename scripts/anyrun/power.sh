@@ -17,23 +17,20 @@ MENU_OPTIONS="${MENU_OPTIONS%\\n}"
 
 # Check if anyrun is installed
 if ! command -v /home/chris/.local/share/cargo/bin/anyrun &>/dev/null; then
-  echo "anyrun could not be found. Please install anyrun to use this script."
+  notify-send "anyrun not found" "Please install anyrun to use this script."
   exit 1
 fi
 
 selected_option=$(echo -e "$MENU_OPTIONS" |  /home/chris/.local/share/cargo/bin/anyrun --plugins "$ANYRUN_PLUGINS")
 
 case "$selected_option" in
-  "⏻ Shutdown")
-    # notify-send "Shutting down..."
+  "Shutdown")
     shutdown now
     ;;
-  "⭯ Restart")
-    # notify-send "Restarting..."
+  "Restart")
     shutdown -r now
     ;;
-  "⎋ Logout")
-    # notify-send "Logging out..."
+  "Logout")
     hyprctl dispatch exit
     ;;
   *)
