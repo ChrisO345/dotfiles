@@ -1,0 +1,21 @@
+(defvar eww "eww -c ~/.config/eww/")
+(defvar eww_scripts "~/.config/eww/scripts/")
+
+(deflisten workspaces :initial "[]" "sh ~/.config/eww/scripts/get-workspaces.sh")
+(deflisten active_workspace :initial "1" "sh ~/.config/eww/scripts/get-active-workspace.sh")
+
+(defvar launcher false)
+(defvar calendar false)
+(defvar wifi false)
+
+(defpoll calendar-day :interval "10h" "date '+%d'")
+(defpoll calendar-month :interval "10h" "date '+%m'")
+(defpoll calendar-short :interval "10h" "date '+%b %d, %Y'")
+(defpoll calendar-year :interval "10h" "date '+%Y'")
+(defpoll clock :interval "10s" "date '+%H:%M'")
+(defpoll current-wifi :interval "5s" "~/.config/eww/scripts/get-network.sh")
+(defpoll wifi-strength :interval "5s" "~/.config/eww/scripts/get-network-strength.sh")
+
+;; Widgets ;;
+
+(include "widgets/bar.yuck")

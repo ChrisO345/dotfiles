@@ -1,0 +1,28 @@
+$background: #0c0c11;
+$foreground: #e0e1de;
+
+// Colors
+$color0: #0c0c11;
+$color1: #4C5C71;
+$color2: #3F5882;
+$color3: #5D7189;
+$color4: #75899C;
+$color5: #97A6AF;
+$color6: #B2C1C6;
+$color7: #e0e1de;
+$color8: #9c9d9b;
+$color9: #4C5C71;
+$color10: #3F5882;
+$color11: #5D7189;
+$color12: #75899C;
+$color13: #97A6AF;
+$color14: #B2C1C6;
+$color15: #e0e1de;
+
+*{
+  all: unset;
+  font-family: "Iosevka";
+  font-weight: bold;
+}
+
+@import "scss/bar.scss";
