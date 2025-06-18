@@ -3,6 +3,7 @@
 
 (deflisten workspaces :initial "[]" "sh ~/.config/eww/scripts/get-workspaces.sh")
 (deflisten active_workspace :initial "1" "sh ~/.config/eww/scripts/get-active-workspace.sh")
+(deflisten used_workspaces :initial "[]" "sh ~/.config/eww/scripts/get-used-workspaces.sh")
 
 (defvar launcher false)
 (defvar calendar false)

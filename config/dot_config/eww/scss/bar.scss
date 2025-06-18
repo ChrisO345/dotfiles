@@ -47,9 +47,13 @@
   transition: color 0.3s ease-in-out;
 }
 
-.workspace.current {
-  color: $color2;
+.workspace.used {
+  color: $color6;
 }
+
+// .workspace.current {
+//   color: $color2;
+// }
 
 .workspace:hover {
   color: mix($foreground, $color2, 70%);
