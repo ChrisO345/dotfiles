@@ -4,7 +4,19 @@ alias v="nvim"
 alias shell="exec \$SHELL -l"
 
 # Neovim aliases
-alias vf='nvim $(fd . -t f | fzf)'
+nvf() {
+  local file
+  if [ -z "$1" ]; then
+    file="$(fd . -t f | fzf)"
+  else
+    file="$(fd . -t f | fzf -1 -q $1)"
+  fi
+
+  if [ -n "$file" ]; then
+    nvim "$file"
+  fi
+}
+
 alias vfm='nvim $(fd . -t f | fzf -m)'
 
 # File & Directory Operations

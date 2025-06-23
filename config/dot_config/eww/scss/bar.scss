@@ -14,12 +14,20 @@
 
 .launcher:hover {
   background-color: mix($background, $foreground, 95%);
+  color: $color13;
+}
+
+.shutdown:hover,
+.lock:hover,
+.reboot:hover,
+.exit:hover,
+.suspend:hover {
+  color: $color13;
 }
 
 .false{
   font-size: 0rem;
 }
-
 
 .clock {
   color: $color6;
@@ -56,7 +64,7 @@
 // }
 
 .workspace:hover {
-  color: mix($foreground, $color2, 70%);
+  color: mix($foreground, $color13, 70%);
 }
 
 .volbar trough {
