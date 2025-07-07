@@ -8,6 +8,7 @@
 (defvar launcher false)
 (defvar calendar false)
 (defvar wifi false)
+(defvar med false)
 
 (defpoll calendar-day :interval "10h" "date '+%d'")
 (defpoll calendar-month :interval "10h" "date '+%m'")
@@ -17,6 +18,14 @@
 (defpoll current-wifi :interval "5s" "~/.config/eww/scripts/get-network.sh")
 (defpoll wifi-strength :interval "5s" "~/.config/eww/scripts/get-network-strength.sh")
 
+(defpoll volume-icon :interval "1s" "~/.config/eww/scripts/get-volume-icons.sh")
+(defpoll microphone-status :interval "1s" :initial "false" "~/.config/eww/scripts/get-microphone-status.sh")
+
+(defpoll current-volume :interval "1s" :initial "0" "pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | sed 's/%//'")
+(defpoll current-microphone :interval "1s" :initial "0" "pactl get-source-volume @DEFAULT_SOURCE@ | awk '{print $5}' | sed 's/%//'")
+
 ;; Widgets ;;
 
+(include "widgets/calendar.yuck")
+(include "widgets/media.yuck")
 (include "widgets/bar.yuck")

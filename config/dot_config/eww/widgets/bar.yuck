@@ -40,15 +40,6 @@
                 :onclick "hyprctl dispatch workspace ${workspace.id}"
                 "${active_workspace == workspace.id ? "" : ""}")))))
 
-(defwidget cal []
-	(box :class "cal-box" 
-		 :orientation "v"
-	(box :class "cal-inner-box"
-	(calendar :class "cal" 
-			  :day calendar-day 
-			  :month calendar-month 
-			  :year calendar-year))))
-
 (defwidget clock []
   (eventbox :onhover "${eww} update calendar=true"
             :onhoverlost "${eww} update calendar=false"
@@ -62,6 +53,18 @@
         (button :class "calendar"
                 :onclick "sh ${eww_scripts}/toggle-calendar.sh"
                 calendar-short)))))
+
+(defwidget med []
+  (eventbox :onhover "${eww} update med=true"
+            :onhoverlost "${eww} update med=false"
+            :cursor "pointer"
+            :tooltip "Media Control Panel"
+  (box  :class "med"
+        :orientation "horizontal"
+        :space-evenly false
+        (button :class "media-icon"
+                :onclick "sh ${eww_scripts}/toggle-media.sh"
+                ""))))
 
 (defwidget wifi []
   (eventbox :onhover "${eww} update wifi=true"
@@ -90,8 +93,8 @@
         :halign "start"
         :vexpand "false"
         :hexpand "false"
-    ;; (launcher)
-    (launcher)))
+    (launcher)
+    ))
 
 ;; Right Group ;;
 (defwidget right []
@@ -101,10 +104,7 @@
         :halign "end"
         :vexpand "false"
         :hexpand "false"
-    ;; (launcher)
-    ;; (launcher)
-    ;; (launcher)
-    ;; (launcher)
+    (med)
     (wifi)
     (clock)))
 
@@ -143,13 +143,4 @@
           :exclusive "true"
           :focusable "false"
           (bar))
-
-(defwindow calendar
-          :monitor '[1, 0]'
-          :geometry (geometry :x "10px"
-                              :y "5px"
-                              :width "270px"
-                              :height "60px"
-                              :anchor "top right")
-          (cal))
 

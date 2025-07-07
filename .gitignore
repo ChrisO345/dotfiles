@@ -1,2 +1,7 @@
 # Exlude the anyrun lib files
 config/dot_config/anyrun/lib/*.so
+
+# Exclude all the eww/resources files
+config/dot_config/eww/resources/*
+!config/dot_config/eww/resources/example.conf
+
