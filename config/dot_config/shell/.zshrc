@@ -1,5 +1,6 @@
 # Load Shell Config Files
 [ -f "$XDG_CONFIG_HOME/shell/alias.sh" ] && source "$XDG_CONFIG_HOME/shell/alias.sh"
+[ -f "$XDG_CONFIG_HOME/shell/funcs.sh" ] && source "$XDG_CONFIG_HOME/shell/funcs.sh"
 [ -f "$XDG_CONFIG_HOME/shell/vars.sh" ] && source "$XDG_CONFIG_HOME/shell/vars.sh"
 
 # Enable Zsh Modules

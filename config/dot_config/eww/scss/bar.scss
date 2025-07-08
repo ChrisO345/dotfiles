@@ -59,6 +59,10 @@
   color: $color6;
 }
 
+.workspace.second {
+  color: $color4;
+}
+
 .workspace:hover {
   color: mix($foreground, $color13, 70%);
 }

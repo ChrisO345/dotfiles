@@ -1,3 +1,10 @@
+.media {
+  background-color: $background;
+  margin: 0 12px;
+  padding: 12px;
+  border-radius: 12px;
+}
+
 .controls {
   background-color: $background;
   padding: 12px;
@@ -6,7 +13,7 @@
 
 .volume-control,
 .microphone-control { 
-  background-color: mix($background, $color1, 90%);
+  background-color: mix($background, $color1, 70%);
   padding: 4px;
   border-radius: 8px;
   transition: background-color 0.3s ease, transform 0.2s ease;
