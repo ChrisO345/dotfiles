@@ -34,6 +34,11 @@ update_folders() {
   (
     configs=$(find . -mindepth 1 -maxdepth 1 -type d)
     for c in $configs; do
+      folder=$(basename "$c")
+      if [[ "$folder" == _* ]]; then
+        log note "Skipping old directory: $folder"
+        continue
+      fi
       directory="${2%/}/${c#./}"
       if [[ $dry_run == "0" ]]; then
         rm -rf "$directory"
@@ -64,6 +69,7 @@ copy "$DOTFILES/config/.gitconfig" "$HOME/.gitconfig"
 copy "$DOTFILES/config/.zprofile" "$HOME/.zprofile"
 copy "$DOTFILES/config/.bashrc" "$HOME/.bashrc"
 copy "$DOTFILES/config/dot_config/starship.toml" "$CONFIG_HOME/starship.toml"
+copy "$DOTFILES/config/dot_config/chrome-flags.conf" "$CONFIG_HOME/chrome-flags.conf"
 
 log action "Copying config directories"
 update_folders "$DOTFILES/config/dot_config/" "$CONFIG_HOME"
