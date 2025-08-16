@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+terminal() {
+  ghostty --class=dotfiles.floating -e "$1"
+}
+
 menu() {
   local prompt="$1"
   local options="$2"
@@ -30,12 +34,14 @@ show_system_menu() {
 }
 
 show_main_menu() {
-  go_to_menu "$(menu "Go" "󰀻  Apps\n  System")"
+  go_to_menu "$(menu "Go" "󰀻  Apps\n󰉉  Install\n󰭌  Remove\n  System")"
 }
 
 go_to_menu() {
   case "${1,,}" in
   *apps*) walker -p "Launch..." ;;
+  *install*) terminal pkg_install.sh ;;
+  *remove*) terminal pkg_remove.sh ;;
   *system*) show_system_menu ;;
   esac
 }

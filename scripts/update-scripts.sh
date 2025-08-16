@@ -13,6 +13,16 @@ copy_scripts() {
             [[ -f "$file" ]] || continue
             filename="$(basename "$file")"
             newname="${folder}_${filename}"
+            if [[ -e "$dst/$newname" ]]; then
+                echo "File $dst/$newname already exists, removing it."
+                rm "$dst/$newname"
+            fi
+            
+            if [[ ! -x "$file" ]]; then
+                echo "Making $file executable"
+                chmod +x "$file"
+            fi
+
             echo "Copying $file -> $dst/$newname"
             cp "$file" "$dst/$newname"
         done

@@ -17,6 +17,10 @@ export DOTFILES="$HOME/personal/dotfiles"
 export SCRIPT_BIN="$HOME/.local/bin"
 export HYPRSHOT_DIR="$HOME/pictures/screenshots"
 
+# Other Paths
+export GOPATH="$XDG_DATA_HOME/go"
+export GOBIN="$GOPATH/bin"
+
 # If not running in a login shell, source the .bashrc file
 [[ $- != *i* ]] && return
 
