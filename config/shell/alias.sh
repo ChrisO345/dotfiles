@@ -18,7 +18,8 @@ alias cd="z"
 
 # Improved Tools
 alias grep="grep --color=auto"
-alias ctree="tree -a -I '.git|node_modules|bower_components|vendor' --dirsfirst | wl-copy"
+alias tree="eza --tree --icons --group-directories-first"
+alias ctree="tree | wl-copy"
 
 # Git Shortcuts
 alias gis="git status"
