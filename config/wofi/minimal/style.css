@@ -1,0 +1,100 @@
+@define-color ocean-blue #1B2B34;
+@define-color deep-sea #16232E;
+@define-color coral #FF6F61;
+@define-color seafoam #70C1B3;
+@define-color text-color #DCEFF4;
+@define-color highlight #2A8BCF; /* Ocean blue highlight for text */
+
+/* Global */
+* {
+  font-family: 'JetBrainsMonoNL Nerd Font', monospace;
+  font-size: 18px;
+}
+
+/* Window */
+window {
+  margin: 0px;
+  padding: 8px;
+  border: 2px solid @highlight;
+  border-radius: 12px;
+  background-color: @deep-sea;
+  box-shadow: 0 4px 10px rgba(31, 65, 85, 0.5);
+}
+
+/* Inner Box */
+#inner-box {
+  margin: 3px;
+  padding: 8px;
+  border: none;
+  background-color: @ocean-blue;
+  border-radius: 8px;
+}
+
+/* Outer Box */
+#outer-box {
+  margin: 3px;
+  padding: 8px;
+  border: none;
+  background-color: transparent;
+}
+
+/* Scroll */
+#scroll {
+  margin: 0;
+  padding: 8px;
+  border: none;
+  background-color: transparent;
+}
+
+/* Input (hidden) */
+#input {
+  display: none;
+  margin: -1000px 5px;
+}
+
+#input * {
+  outline: 4px solid @coral !important;
+}
+
+/* Text */
+#text {
+  margin: 4px;
+  border: none;
+  color: @text-color;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: color 0.25s ease;
+}
+
+/* Entry */
+#entry {
+  background-color: transparent;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Arrow */
+#entry arrow {
+  border: none;
+  color: @seafoam;
+}
+
+/* Selected Entry */
+#entry:selected {
+  background-color: transparent; /* no background highlight */
+  border: none;
+}
+
+#entry:selected #text {
+  color: @highlight; /* highlight text only */
+  font-weight: 700;
+  text-shadow: 0 0 5px @highlight;
+}
+
+/* Active Drop */
+#entry:drop(active) {
+  background-color: @coral !important;
+  color: @text-color !important;
+  font-weight: 700;
+}

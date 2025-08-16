@@ -1,0 +1,9 @@
+config:
+  stow -t ~/.config config;
+
+home:
+  stow -t ~ home;
+
+all:
+  @config
+  @home;

@@ -1,0 +1,146 @@
+(defwidget launcher []
+  (eventbox :onhover "${eww} update launcher=true"
+            :onhoverlost "${eww} update launcher=false"
+            :cursor "pointer"
+    (box  :orientation "horizontal"
+          :space-evenly "false"
+      (button :class "launcher"
+              :onclick "${eww} update launcher=false && sh ${eww_scripts}/open-launcher.sh" "󰣇")
+      (revealer :transition "slideleft"
+                :reveal launcher
+                :duration "300ms"
+        (box  :class "powermenu"
+              :orientation "horizontal"
+              :space-evenly "true"
+              :spacing 24
+          (button :class "shutdown"
+                  :tooltip "Power Off"
+                  :onclick "shutdown now" "")
+          (button :class "lock"
+                  :tooltip "Lock"
+                  :onclick "${eww_scripts}/lock.sh" "")
+          (button :class "reboot"
+                  :tooltip "Reboot"
+                  :onclick "shutdown -r now" "")
+          (button :class "exit"
+                  :tooltip "Logout"
+                  :onclick "hyprctl dispatch exit" "")
+          (button :class "suspend"
+                  :tooltip "Suspend"
+                  :onclick "systemctl suspend" ""))))))
+
+(defwidget workspaces []
+  (eventbox :onscroll "sh ~/.config/eww/scripts/change-active-workspace.sh {} ${active_workspace}"
+    (box :orientation "h"
+         :space-evenly false
+         :class "workspaces"
+         :hexpand true
+      (for workspace in workspaces
+        (button :class "workspace ${active_workspace == workspace.id ? "current" : ""} ${workspace.windows > 0 ? "used" : ""} ${workspace.id == 10 ? "second" : ""}"
+                :onclick "hyprctl dispatch workspace ${workspace.id}"
+                "${active_workspace == workspace.id ? "" : ""}")))))
+
+(defwidget clock []
+  (eventbox :onhover "${eww} update calendar=true"
+            :onhoverlost "${eww} update calendar=false"
+            :cursor "pointer"
+  (box  :class "clock"
+        :orientation "horizontal"
+        :space-evenly false
+        clock
+            (revealer :transition "slideleft"
+                      :reveal calendar
+        (button :class "calendar"
+                :onclick "sh ${eww_scripts}/toggle-calendar.sh"
+                calendar-short)))))
+
+(defwidget med []
+  (eventbox :onhover "${eww} update med=true"
+            :onhoverlost "${eww} update med=false"
+            :cursor "pointer"
+            :tooltip "Media Control Panel"
+  (box  :class "med"
+        :orientation "horizontal"
+        :space-evenly false
+        (button :class "media-icon"
+                :onclick "sh ${eww_scripts}/toggle-media.sh"
+                ""))))
+
+(defwidget wifi []
+  (eventbox :onhover "${eww} update wifi=true"
+            :onhoverlost "${eww} update wifi=false"
+            :cursor "pointer"
+            :tooltip "Connected to ${current-wifi}"
+  (box  :class "wifi"
+        :orientation "horizontal"
+        :space-evenly "false"
+    (button :class "wifi-icon"
+            :onclick "${eww_scripts}/network-menu.sh" wifi-strength)
+    (revealer :transition "slideright"
+              :reveal wifi
+              :duration "300ms"
+              (button :onclick "${eww_scripts}/network-menu.sh"
+              (label  :class "wifi-label"
+                      :text current-wifi))))))
+
+;;;;;; Groups ;;;;;;
+
+;; Left Group ;;
+(defwidget left []
+  (box  :class "left"
+        :orientation "horizontal"
+        :space-evenly "false"
+        :halign "start"
+        :vexpand "false"
+        :hexpand "false"
+    (launcher)
+    ))
+
+;; Right Group ;;
+(defwidget right []
+  (box  :class "right"
+        :orientation "horizontal"
+        :space-evenly "false"
+        :halign "end"
+        :vexpand "false"
+        :hexpand "false"
+    (med)
+    (wifi)
+    (clock)))
+
+;; Center Group ;;
+(defwidget center []
+  (box  :class "center"
+        :orientation "horizontal"
+        :space-evenly "false"
+        :halign "center"
+        :vexpand "false"
+        :hexpand "false"
+    (workspaces)
+    ))
+
+;; Bar ;;
+(defwidget bar []
+  (box  :class "main-bar"
+        :orientation "horizontal"
+        :vexpand "false"
+        :hexpand "false"
+    (left)
+    (center)
+    (right)))
+
+;;;;;; Window ;;;;;;
+
+;; bar ;;
+(defwindow bar
+          :monitor '[1, 0]'
+          :geometry (geometry :x "10px"
+                              :y "10px"
+                              :width "99%"
+                              :height "20px"
+                              :anchor "top center")
+          :stacking "bg"
+          :exclusive "true"
+          :focusable "false"
+          (bar))
+

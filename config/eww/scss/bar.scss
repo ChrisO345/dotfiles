@@ -1,0 +1,118 @@
+.main-bar {
+  background-color: mix($background, $foreground, 95%);
+  padding: 5px;
+  margin: 10px;
+  margin-bottom: 0;
+  border-radius: 12px;
+  border-color: $border;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.launcher {
+  font-size: 1.2rem;
+  color: $foreground;
+  padding: 0 20px 0 8px;
+  border-radius: 8px;
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.launcher:hover {
+  background-color: mix($background, $foreground, 95%);
+  color: $color13;
+}
+
+.shutdown:hover,
+.lock:hover,
+.reboot:hover,
+.exit:hover,
+.suspend:hover {
+  color: $color13;
+}
+
+.false{
+  font-size: 0rem;
+}
+
+.clock {
+  color: $color6;
+  padding: 5px 5px 0 4px;
+}
+
+.right {
+  color: $background;
+  font-size: 1.1rem;
+  border-radius: 50px;
+}
+
+.workspaces {
+  font-weight: 900;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  padding: 0 4px;
+}
+
+.workspace {
+  color: $color3;
+  border-radius: 1rem;
+  margin: 0 0.25rem;
+  padding: 0 0.1rem;
+  transition: color 0.3s ease-in-out;
+}
+
+.workspace.used {
+  color: $color6;
+}
+
+.workspace.second {
+  color: $color4;
+}
+
+.workspace:hover {
+  color: mix($foreground, $color13, 70%);
+}
+
+.wifi-icon,
+.media-icon {
+  color: mix($color2, $foreground, 90%);
+  font-size: 1.1rem;
+}
+
+.wifi, .med {
+  padding: 0 12px 0 4px;
+}
+
+tooltip.background {
+  color: $foreground;
+  background-color: $background;
+  border-radius: 8px;
+}
+
+.media-label {
+  color: mix($color2, $foreground, 90%);
+  margin: 0 0 0 12px;
+}
+
+.wifi-label {
+  color: mix($color2, $foreground, 90%);
+  margin: 5px 0 0 12px;
+}
+
+.cal {
+  background-color: mix($background, $foreground, 95%);
+  border-radius: 12px;
+  padding: 4px;
+}
+
+.calendar {
+  padding: 0 4px 0 8px;
+}
+
+.cal:selected {
+  background-color: $color9;
+  font-weight: bold;
+}
+
+.cal.indeterminate {
+  background-color: $color9;
+}

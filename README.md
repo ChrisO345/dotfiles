@@ -2,7 +2,7 @@
 
 A curated collection of configuration files and scripts for my Arch Linux development environment.
 
-This repository is designed for straightforward setup—no need for `stow`, symlinks, or complex installation steps. Simply clone and execute the provided install script.
+This current config using gnu `stow` in order to symlink files into the home directory. These stow commands can be run from the jotfile.
 
 ---
 
@@ -14,15 +14,23 @@ This repository is designed for straightforward setup—no need for `stow`, syml
 git clone https://github.com/chriso345/dotfiles ~/personal/dotfiles
 ```
 
-2. Navigate to the `keystone` directory and run the install script:
+2. Using `jot` and `stow`, files can then be symlinked.
 
 ```bash
-cd ~/personal/dotfiles/keystone
-chmod +x keystone
-./keystone
+cd ~/personal/dotfiles
+jot all
 ```
 
-This script will configure the dotfiles (*planned*: dependency installation) to prepare your environment.
+Alternatively, the `stow` commands can be run manually:
+
+```bash
+cd ~/personal/dotfiles
+stow -t ~ home            # Symlink ~ files
+stow -t ~/.config config  # Symlink ~/.config files
+...
+```
+
+Note that there is currently no command to copy/symlink `scripts/` to a bin directory.
 
 ---
 
