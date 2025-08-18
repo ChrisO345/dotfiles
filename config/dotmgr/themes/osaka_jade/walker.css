@@ -1,0 +1,6 @@
+@define-color selected-text #72ce9d;   /* Seafoam jade accent */
+@define-color text #d6f5e3;           /* Soft jade-tinted white */
+@define-color base #0f1917;           /* Deep jade-black */
+@define-color border #57ae7a;         /* Jade green */
+@define-color foreground #d6f5e3;     /* Foreground text */
+@define-color background #0f1917;     /* Background */

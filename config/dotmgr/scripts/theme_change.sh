@@ -23,3 +23,6 @@ cp -r "$THEME_DIR/$1" "$THEME_DIR/_current"
 # Make the current.txt file with the theme name
 echo "$1" > "$THEME_DIR/_current/current.txt"
 
+# Reload applications
+eww --restart open bar
+
