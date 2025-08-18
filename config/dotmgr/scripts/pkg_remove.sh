@@ -7,6 +7,7 @@ fzf_args=(
   --bind 'alt-p:toggle-preview'
   --bind 'alt-d:preview-half-page-down,alt-u:preview-half-page-up'
   --bind 'alt-k:preview-up,alt-j:preview-down'
+  --height '100%'
 )
 
 pkg_name=$(paru -Qqe | fzf "${fzf_args[@]}")

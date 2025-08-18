@@ -5,7 +5,7 @@ export PATH="$HOME/.config/dotmgr/scripts:$PATH"
 THEMES_PATH="$HOME/.config/dotmgr/themes"
 
 terminal() {
-  ghostty --class=dotfiles.floating -e "$1"
+  ghostty --class=dotmgr.floating.small -e "$1"
 }
 
 menu() {

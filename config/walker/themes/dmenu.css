@@ -37,7 +37,7 @@ slider,
   background: alpha(@base, 0.95);
   padding: 20px;
   border: 2px solid @border;
-  border-radius: 0px;
+  border-radius: 10px;
 }
 
 /* Search container */
