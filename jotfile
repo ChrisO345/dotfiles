@@ -7,6 +7,3 @@ home:
 all:
   @config
   @home;
-
-update-scripts:
-  ./scripts/update-scripts.sh;

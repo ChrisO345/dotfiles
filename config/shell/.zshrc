@@ -3,9 +3,13 @@
 [ -f "$XDG_CONFIG_HOME/shell/funcs.sh" ] && source "$XDG_CONFIG_HOME/shell/funcs.sh"
 [ -f "$XDG_CONFIG_HOME/shell/vars.sh" ] && source "$XDG_CONFIG_HOME/shell/vars.sh"
 
+# Redirect zcompdump to $XDG_CACHE_HOME
+export ZSH_COMPDUMP="${XDG_CACHE_HOME}/zsh/zcompdump"
+mkdir -p "$(dirname "$ZSH_COMPDUMP")"
+
 # Enable Zsh Modules
 zmodload zsh/complist
-autoload -U compinit && compinit
+autoload -U compinit && compinit -d "$ZSH_COMPDUMP"
 autoload -U colors && colors
 
 # Load Dircolors
