@@ -1,0 +1,315 @@
+@import "/home/chris/.config/dotmgr/themes/_current/swaync.css";
+
+* {
+  all: unset;
+  font-family: FiraCode Nerd Font;
+  transition: 0.3s;
+  font-size: 1.2rem;
+}
+
+.floating-notifications.background .notification-row {
+  padding: 1rem;
+}
+
+.floating-notifications.background .notification-row .notification-background {
+  border-radius: 0.5rem;
+  background-color: @bg-primary;
+  color: @text-primary;
+  border: 1px solid @border-default;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification.critical {
+  border: 1px solid @danger;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification
+  .notification-content
+  .summary {
+  margin: 0.5rem;
+  color: @text-primary;
+  font-weight: bold;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification
+  .notification-content
+  .body {
+  margin: 0.5rem;
+  color: @text-secondary;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > * {
+  min-height: 3rem;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > *
+  .notification-action {
+  border-radius: 0.5rem;
+  color: @text-primary;
+  background-color: @bg-secondary;
+  border: 1px solid @border-default;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > *
+  .notification-action:hover {
+  background-color: @bg-hover;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > *
+  .notification-action:active {
+  background-color: @bg-active;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .close-button {
+  margin: 0.5rem;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+  color: @text-primary;
+  background-color: @danger;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .close-button:hover {
+  color: @bg-primary;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .close-button:active {
+  background-color: @danger-hover;
+}
+
+.control-center {
+  border-radius: 0.5rem;
+  margin: 1rem;
+  background-color: @bg-primary;
+  color: @text-primary;
+  padding: 1rem;
+  border: 1px solid @border-default;
+}
+
+.control-center .widget-title {
+  color: @text-accent;
+  font-weight: bold;
+}
+
+.control-center .widget-title button {
+  border-radius: 0.5rem;
+  color: @text-primary;
+  background-color: @bg-secondary;
+  border: 1px solid @border-default;
+  padding: 0.5rem;
+}
+
+.control-center .widget-title button:hover {
+  background-color: @bg-hover;
+}
+
+.control-center .widget-title button:active {
+  background-color: @bg-active;
+}
+
+.control-center .notification-row .notification-background {
+  border-radius: 0.5rem;
+  margin: 0.5rem 0;
+  background-color: @bg-secondary;
+  color: @text-primary;
+  border: 1px solid @border-default;
+}
+
+.control-center .notification-row .notification-background .notification {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.control-center
+  .notification-row
+  .notification-background
+  .notification.critical {
+  border: 1px solid @danger;
+}
+
+.control-center
+  .notification-row
+  .notification-background
+  .notification
+  .notification-content {
+  color: @text-primary;
+}
+
+.control-center
+  .notification-row
+  .notification-background
+  .notification
+  .notification-content
+  .summary {
+  margin: 0.5rem;
+  color: @text-primary;
+  font-weight: bold;
+}
+
+.control-center
+  .notification-row
+  .notification-background
+  .notification
+  .notification-content
+  .body {
+  margin: 0.5rem;
+  color: @text-secondary;
+}
+
+.control-center
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > * {
+  min-height: 3rem;
+}
+
+.control-center
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > *
+  .notification-action {
+  border-radius: 0.5rem;
+  color: @text-primary;
+  background-color: @bg-secondary;
+  border: 1px solid @border-default;
+}
+
+.control-center
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > *
+  .notification-action:hover {
+  background-color: @bg-hover;
+}
+
+.control-center
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > *
+  .notification-action:active {
+  background-color: @bg-active;
+}
+
+.control-center .notification-row .notification-background .close-button {
+  margin: 0.5rem;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+  color: @text-primary;
+  background-color: @danger;
+}
+
+.control-center .notification-row .notification-background .close-button:hover {
+  color: @bg-primary;
+}
+
+.control-center
+  .notification-row
+  .notification-background
+  .close-button:active {
+  background-color: @danger-hover;
+}
+
+progressbar,
+progress,
+trough {
+  border-radius: 0.5rem;
+}
+
+.notification.critical progress {
+  background-color: @danger;
+}
+
+.notification.low progress,
+.notification.normal progress {
+  background-color: @accent-sapphire;
+}
+
+trough {
+  background-color: @bg-secondary;
+}
+
+.control-center trough {
+  background-color: @bg-active;
+}
+
+.control-center-dnd {
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+}
+
+.control-center-dnd slider {
+  background: @bg-hover;
+  border-radius: 0.5rem;
+}
+
+.widget-dnd {
+  color: @text-secondary;
+}
+
+.widget-dnd > switch {
+  border-radius: 0.5rem;
+  background: @bg-hover;
+  border: 1px solid @border-default;
+}
+
+.widget-dnd > switch:checked slider {
+  background: @accent-blue;
+}
+
+.widget-dnd > switch slider {
+  background: @bg-active;
+  border-radius: 0.5rem;
+  margin: 0.25rem;
+}

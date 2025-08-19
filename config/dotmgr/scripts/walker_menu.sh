@@ -4,6 +4,14 @@ export PATH="$HOME/.config/dotmgr/scripts:$PATH"
 
 THEMES_PATH="$HOME/.config/dotmgr/themes"
 
+menu_back() {
+  if [[ $NO_PARENT -eq 0 ]]; then
+    show_main_menu
+  else
+    exit 0
+  fi
+}
+
 terminal() {
   ghostty --class=dotmgr.floating.small -e "$1"
 }
@@ -54,7 +62,7 @@ get_themes_menu() {
 
   local chosen=$(menu "Themes" "$(printf '%s\n' "${themes[@]}")" "" "$styled_curr")
   if [[ -z "$chosen" ]]; then
-    show_main_menu
+    menu_back
     return
   fi
   chosen=$(echo "$chosen" | tr ' ' '_' | tr '[:upper:]' '[:lower:]')
@@ -65,22 +73,23 @@ show_style_menu() {
   case $(menu "Style" "󰖧  Themes\n󰖨  Fonts") in
   *Themes*) get_themes_menu ;;
   *Fonts*) notify-send "Fonts" "This feature is not implemented yet." ;;
-  *) show_main_menu ;;
+  *) menu_back ;;
   esac
 }
 
-show_system_menu() {
-  case $(menu "System" "  Lock\n󰤄  Suspend\n󰜉  Restart\n󰐥  Shutdown") in
+show_power_menu() {
+  case $(menu "Power" "  Lock\n  Logout\n󰤄  Suspend\n󰜉  Restart\n󰐥  Shutdown") in
   *Lock*) hyprlock ;;
+  *Logout*) hyprctl dispatch exit ;;
   *Suspend*) systemctl suspend ;;
   *Restart*) systemctl reboot ;;
   *Shutdown*) systemctl poweroff ;;
-  *) show_main_menu ;;
+  *) menu_back ;;
   esac
 }
 
 show_main_menu() {
-  go_to_menu "$(menu "Go" "󰀻  Apps\n  Style\n󰉉  Install\n󰭌  Remove\n  System")"
+  go_to_menu "$(menu "Go" "󰀻  Apps\n  Style\n󰉉  Install\n󰭌  Remove\n  Power")"
 }
 
 go_to_menu() {
@@ -89,13 +98,14 @@ go_to_menu() {
   *style*) show_style_menu ;;
   *install*) terminal pkg_install.sh ;;
   *remove*) terminal pkg_remove.sh ;;
-  *system*) show_system_menu ;;
+  *power*) show_power_menu ;;
   esac
 }
 
+NO_PARENT=0
 if [[ -n "$1" ]]; then
+  NO_PARENT=1
   go_to_menu "$1"
 else
   show_main_menu
 fi
-# get_themes_menu

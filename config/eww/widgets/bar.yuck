@@ -66,6 +66,16 @@
                 :onclick "sh ${eww_scripts}/toggle-media.sh"
                 ""))))
 
+(defwidget noti []
+  (eventbox :cursor "pointer"
+            :tooltip "Notification Panel"
+  (box  :class "noti"
+        :orientation "horizontal"
+        :space-evenly false
+        (button :class "noti-icon"
+                :onclick "swaync-client -t -sw"
+                ""))))
+
 (defwidget wifi []
   (eventbox :onhover "${eww} update wifi=true"
             :onhoverlost "${eww} update wifi=false"
@@ -106,6 +116,7 @@
         :hexpand "false"
     (med)
     (wifi)
+    (noti)
     (clock)))
 
 ;; Center Group ;;

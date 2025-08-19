@@ -1,0 +1,15 @@
+@define-color bg-primary        #faf4ed;
+@define-color bg-secondary      #fffaf3;
+@define-color bg-hover          #f2e9e1;
+@define-color bg-active         #9893a5;
+
+@define-color text-primary      #575279;
+@define-color text-secondary    #797593;
+@define-color text-accent       #d7827e;
+
+@define-color border-default    #9893a5;
+
+@define-color danger            #b4637a;
+@define-color danger-hover      #d7827e;
+@define-color accent-blue       #286983;
+@define-color accent-sapphire   #56949f;

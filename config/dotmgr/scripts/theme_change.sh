@@ -23,6 +23,26 @@ cp -r "$THEME_DIR/$1" "$THEME_DIR/_current"
 # Make the current.txt file with the theme name
 echo "$1" > "$THEME_DIR/_current/current.txt"
 
+# TODO: Update this so that the chosen wallpaper persists across theme changes
+background_files=("$THEME_DIR/_current/walls/"*)
+next_wall="${background_files[0]}"
+
+PAPER="$THEME_DIR/_current/paper.conf"
+
+# Delete Existing paper.conf if it exists
+if [[ -f "$PAPER" ]]; then
+    rm "$PAPER"
+fi
+
+# Create a file in _current called paper.conf with 
+echo "\$currentBG = $next_wall" > "$PAPER"
+echo "preload = \$currentBG" >> "$PAPER"
+echo "wallpaper = ,\$currentBG" >> "$PAPER"
+
+
 # Reload applications
+hyprctl reload
 eww --restart open bar
+hyprctl hyprpaper reload ,"$next_wall"
+swaync-client -rs
 

@@ -1,0 +1,15 @@
+@define-color bg-primary        #0f1917;  /* jade-black background */
+@define-color bg-secondary      #152622;  /* slightly lighter panel bg */
+@define-color bg-hover          #1d302c;  /* hover state */
+@define-color bg-active         #57ae7a;  /* active/pressed jade */
+
+@define-color text-primary      #d6f5e3;  /* soft jade-tinted white */
+@define-color text-secondary    #9dcfb9;  /* muted jade text */
+@define-color text-accent       #72ce9d;  /* seafoam jade highlight */
+
+@define-color border-default    #57ae7a;  /* jade border */
+
+@define-color danger            #b4637a;  /* red (borrowed for warnings) */
+@define-color danger-hover      #d7827e;  /* lighter red hover */
+@define-color accent-blue       #72ce9d;  /* jade as the primary accent */
+@define-color accent-sapphire   #4fb68b;  /* deeper jade-green accent */

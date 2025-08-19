@@ -73,12 +73,13 @@
 }
 
 .wifi-icon,
-.media-icon {
+.media-icon, 
+.noti-icon {
   color: mix($color2, $foreground, 90%);
   font-size: 1.1rem;
 }
 
-.wifi, .med {
+.wifi, .med, .noti {
   padding: 0 12px 0 4px;
 }
 
@@ -88,7 +89,7 @@ tooltip.background {
   border-radius: 8px;
 }
 
-.media-label {
+.media-label, .noti-label {
   color: mix($color2, $foreground, 90%);
   margin: 0 0 0 12px;
 }

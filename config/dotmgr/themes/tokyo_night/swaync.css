@@ -1,0 +1,15 @@
+@define-color bg-primary        #1a1b2a;  /* main background */
+@define-color bg-secondary      #1f2335;  /* panels, cards */
+@define-color bg-hover          #292e42;  /* hover state */
+@define-color bg-active         #414868;  /* pressed/active */
+
+@define-color text-primary      #a9b1d6;  /* main text */
+@define-color text-secondary    #7aa2f7;  /* secondary/cool highlight text */
+@define-color text-accent       #bb9af7;  /* magenta/purple accent */
+
+@define-color border-default    #414868;  /* subtle borders */
+
+@define-color danger            #f7768e;  /* red for alerts */
+@define-color danger-hover      #ff9e64;  /* warmer hover for red */
+@define-color accent-blue       #7dcfff;  /* bright cyan/blue accent */
+@define-color accent-sapphire   #2ac3de;  /* teal accent */
