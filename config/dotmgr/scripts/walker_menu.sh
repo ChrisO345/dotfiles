@@ -69,9 +69,51 @@ get_themes_menu() {
   theme_change.sh $chosen
 }
 
+show_wallpaper_menu() {
+  local current_file="$THEMES_PATH/_current/current.txt"
+  local paper_file="$THEMES_PATH/_current/paper.conf"
+  local current_theme
+  local themes=()
+
+  # Read the current theme
+  if [[ ! -f "$current_file" ]]; then
+      echo "Error: $current_file not found"
+      return 1
+  fi
+  current_theme=$(<"$current_file")
+
+  # Read the first line of paper.conf to get the current wallpaper
+  if [[ -f "$paper_file" ]]; then
+    current_wallpaper=$(grep -m1 '^\$currentBG' "$paper_file" | cut -d'=' -f2 | tr -d ' ')
+    current_wallpaper=$(basename "$current_wallpaper")
+  else
+    current_wallpaper=""
+  fi
+
+  # Get all the wallpapers in the current theme
+  local wallpapers=("$THEMES_PATH/${current_theme}/walls/"*)
+  
+  # Join the wallpaper names into a single\n string
+  for wall in "${wallpapers[@]}"; do
+    wall_name=$(basename "$wall")
+    if [[ -f "$wall" ]]; then
+      themes+=("$wall_name")
+    fi
+  done
+  local joined_themes=$(printf '%s\n' "${themes[@]}")
+  local chosen=$(menu "Wallpapers" "$joined_themes" "" "$current_wallpaper")
+  if [[ -z "$chosen" ]]; then
+    menu_back
+    return
+  fi
+  notify-send "Wallpaper Change" "Changing wallpaper to $chosen"
+  change_background.sh "$THEMES_PATH/${current_theme}/walls/$chosen"
+}
+
 show_style_menu() {
-  case $(menu "Style" "󰖧  Themes\n󰖨  Fonts") in
+  case $(menu "Style" "󰖧  Themes\n󰸉  Wallpapers\n󰖨  Fonts") in
   *Themes*) get_themes_menu ;;
+  *Wallpapers*) show_wallpaper_menu ;;
   *Fonts*) notify-send "Fonts" "This feature is not implemented yet." ;;
   *) menu_back ;;
   esac
