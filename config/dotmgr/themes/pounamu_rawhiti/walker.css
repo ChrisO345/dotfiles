@@ -1,0 +1,6 @@
+@define-color selected-text #A5D6A7;   /* Bamboo Leaf (inline backgrounds) */
+@define-color text #3A4238;            /* Deep Olive (foreground text) */
+@define-color base #FAFAE0;            /* Warm Cream (editor background) */
+@define-color border #A77B00;          /* Amber Gold (keywords) */
+@define-color foreground #3A4238;      /* Deep Olive */
+@define-color background #FAFAE0;      /* Warm Cream */

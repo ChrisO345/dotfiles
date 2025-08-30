@@ -1,0 +1,15 @@
+@define-color bg-primary        #FAFAE0;  /* Warm Cream (editor background) */
+@define-color bg-secondary      #EAEAD0;  /* Pale Sand (UI backgrounds) */
+@define-color bg-hover          #A5D6A7;  /* Bamboo Leaf (inline backgrounds) */
+@define-color bg-active         #27850B;  /* Forest Green (strings, accents) */
+
+@define-color text-primary      #3A4238;  /* Deep Olive (foreground) */
+@define-color text-secondary    #A77B00;  /* Amber Gold (keywords) */
+@define-color text-accent       #8A4ADF;  /* Warm Purple (headings, operators) */
+
+@define-color border-default    #DF5926;  /* Burnt Orange (active status) */
+
+@define-color danger            #DF5926;  /* Burnt Orange (active status) */
+@define-color danger-hover      #DF5926;  /* Burnt Orange (active status) */
+@define-color accent-blue       #27850B;  /* Forest Green (strings, accents) */
+@define-color accent-sapphire   #8A4ADF;  /* Warm Purple (headings, operators) */
