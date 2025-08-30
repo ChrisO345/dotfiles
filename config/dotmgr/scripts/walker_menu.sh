@@ -119,6 +119,26 @@ show_style_menu() {
   esac
 }
 
+show_package_menu() {
+  case $(menu "Packages" "󰉉  Install\n󰆜  Remove\n󰍛  Query") in
+    *Install*) terminal pkg_install.sh ;;
+    *Remove*) terminal pkg_remove.sh ;;
+    *Query*) terminal pkg_query.sh ;;
+    *) menu_back ;;
+  esac
+}
+
+show_settings_menu() {
+  notify-send "Settings" "This feature is not implemented yet."
+}
+
+show_meta_menu() { # Only accessible by running walker_menu.sh Meta
+  case "$(menu "Meta" "󰓹  Hero")" in
+  *Hero*) terminal dotfiles_done.sh ;;
+  *) menu_back ;;
+  esac
+}
+
 show_power_menu() {
   case $(menu "Power" "  Lock\n  Logout\n󰤄  Suspend\n󰜉  Restart\n󰐥  Shutdown") in
   *Lock*) hyprlock ;;
@@ -131,16 +151,17 @@ show_power_menu() {
 }
 
 show_main_menu() {
-  go_to_menu "$(menu "Go" "󰀻  Apps\n  Style\n󰉉  Install\n󰭌  Remove\n  Power")"
+  go_to_menu "$(menu "Go" "󰀻  Apps\n  Style\n󰏖  Packages\n  Settings\n  Power")"
 }
 
 go_to_menu() {
   case "${1,,}" in
   *apps*) walker -p "Launch..." ;;
   *style*) show_style_menu ;;
-  *install*) terminal pkg_install.sh ;;
-  *remove*) terminal pkg_remove.sh ;;
+  *packages*) show_package_menu ;;
+  *settings*) show_settings_menu ;;
   *power*) show_power_menu ;;
+  *meta*) show_meta_menu ;;
   esac
 }
 
