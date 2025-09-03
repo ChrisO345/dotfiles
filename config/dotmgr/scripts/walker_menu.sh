@@ -120,10 +120,11 @@ show_style_menu() {
 }
 
 show_package_menu() {
-  case $(menu "Packages" "󰉉  Install\n󰆜  Remove\n󰍛  Query") in
+  case $(menu "Packages" "󰉉  Install\n󰆜  Remove\n󰍛  Query\n  Update") in
     *Install*) terminal pkg_install.sh ;;
     *Remove*) terminal pkg_remove.sh ;;
     *Query*) terminal pkg_query.sh ;;
+    *Update*) terminal pkg_update.sh ;;
     *) menu_back ;;
   esac
 }
@@ -140,7 +141,7 @@ show_meta_menu() { # Only accessible by running walker_menu.sh Meta
 }
 
 show_power_menu() {
-  case $(menu "Power" "  Lock\n  Logout\n󰤄  Suspend\n󰜉  Restart\n󰐥  Shutdown") in
+  case $(menu "Power" "  Lock\n  Logout\n󰤄  Suspend\n󰝳  Restart\n󰐥  Shutdown") in
   *Lock*) hyprlock ;;
   *Logout*) hyprctl dispatch exit ;;
   *Suspend*) systemctl suspend ;;
