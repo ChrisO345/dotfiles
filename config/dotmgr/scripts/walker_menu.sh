@@ -24,15 +24,17 @@ menu() {
 
   read -r -a args <<<"$extra"
 
-  if [[ -n "$preselect" ]]; then
-    local index
-    index=$(echo -e "$options" | grep -nxF "$preselect" | cut -d: -f1)
-    if [[ -n "$index" ]]; then
-      args+=("-a" "$index")
-    fi
-  fi
+  # if [[ -n "$preselect" ]]; then
+  #   local index
+  #   index=$(echo -e "$options" | grep -nxF "$preselect" | cut -d: -f1)
+  #   if [[ -n "$index" ]]; then
+  #     # args+=("-a" "$index")
+  #     args+=("$index")
+  #   fi
+  # fi
 
-  echo -e "$options" | walker --dmenu --theme dmenu -p "$prompt..." "${args[@]}"
+  # echo -e "$options" | walker --dmenu --theme dmenu -p "$prompt..." "${args[@]}"
+  echo -e "$options" | walker --dmenu -p "$prompt..."
 }
 
 get_themes_menu() {
@@ -60,7 +62,7 @@ get_themes_menu() {
       themes+=("$theme_name")
   done
 
-  local chosen=$(menu "Themes" "$(printf '%s\n' "${themes[@]}")" "" "$styled_curr")
+  local chosen=$(menu "Themes" "$(printf '%s\n' "${themes[@]}")")
   if [[ -z "$chosen" ]]; then
     menu_back
     return

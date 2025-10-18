@@ -7,3 +7,6 @@ config/eww/resources/*
 
 # Exlude the current theme files
 config/dotmgr/themes/_current/*
+
+# Exclue the applications folder for now
+applications/*

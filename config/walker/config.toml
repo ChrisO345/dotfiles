@@ -1,9 +1,11 @@
 close_when_open = true
-theme = "standard"
-theme_base = []
-theme_location = ["~/.config/walker/themes/"]
+theme = "default"
+# theme = "standard"
+# theme_base = []
+# theme_location = ["~/.config/walker/themes/"]
 hotreload_theme = true
 force_keyboard_focus = true
+debug = false
 
 [list]
 max_entries = 200

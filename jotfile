@@ -1,3 +1,6 @@
+apps:
+  stow -t ~/.local/share/applications applications;
+
 config:
   stow -t ~/.config config;
 
@@ -6,4 +9,5 @@ home:
 
 all:
   @config
-  @home;
+  @home
+  @apps;
