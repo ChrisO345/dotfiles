@@ -1,0 +1,71 @@
+title = "Greg"
+
+[[menu]]
+label = "Apps"
+exec = "$GOBIN/greg"
+visible = true
+
+[[menu]]
+label = "Style"
+
+[[menu.items]]
+label = "Theme"
+generator = "~/.config/dotmgr/scripts/theme_toml.sh"
+
+[[menu.items]]
+label = "Wallpaper"
+generator = "~/.config/dotmgr/scripts/wallpaper_toml.sh"
+
+[[menu.items]]
+label = "Font"
+exec = "notify-send \"Fonts\" \"This feature is not implemented yet.\""
+
+[[menu]]
+label = "Packages"
+
+[[menu.items]]
+label = "Install"
+exec = "~/.config/dotmgr/scripts/pkg_install.sh"
+visible = true
+
+[[menu.items]]
+label = "Remove"
+exec = "~/.config/dotmgr/scripts/pkg_remove.sh"
+visible = true
+
+[[menu.items]]
+label = "Query"
+exec = "~/.config/dotmgr/scripts/pkg_query.sh"
+visible = true
+
+[[menu.items]]
+label = "Update"
+exec = "~/.config/dotmgr/scripts/pkg_update.sh"
+visible = true
+
+[[menu]]
+label = "System"
+exec = "nofify-send \"System\" \"This feature is not implemented yet.\""
+
+[[menu]]
+label = "Power"
+
+[[menu.items]]
+label = "Lock"
+exec = "hyprlock"
+
+[[menu.items]]
+label = "Logout"
+exec = "hyprctl dispatch exit"
+
+[[menu.items]]
+label = "Suspend"
+exec = "systemctl suspend"
+
+[[menu.items]]
+label = "Restart"
+exec = "systemctl reboot"
+
+[[menu.items]]
+label = "Shutdown"
+exec = "systemctl poweroff"
