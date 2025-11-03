@@ -1,0 +1,6 @@
+[colors]
+title = "#A77B00"    # Amber Gold (border)
+prompt = "#A5D6A7"   # Bamboo Leaf (selected-text accent)
+item = "#3A4238"     # Deep Olive (text)
+selected = "#A5D6A7" # Bamboo Leaf (background highlight)
+help = "#3A4238"     # Deep Olive (muted gray / subtle text)

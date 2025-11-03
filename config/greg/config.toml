@@ -9,6 +9,8 @@ default_max = 20
 # Enable debug logging
 log = true
 
+file = "~/.config/dotmgr/themes/_current/greg.toml"
+
 [colors]
 title = "71"     # jade green (border)
 prompt = "79"    # seafoam jade (selected-text accent)

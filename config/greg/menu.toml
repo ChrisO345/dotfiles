@@ -1,71 +1,71 @@
 title = "Greg"
 
 [[menu]]
-label = "Apps"
+label = "󰀻 Apps"
 exec = "$GOBIN/greg"
 visible = true
 
 [[menu]]
-label = "Style"
+label = " Style"
 
 [[menu.items]]
-label = "Theme"
+label = "󰖧 Theme"
 generator = "~/.config/dotmgr/scripts/theme_toml.sh"
 
 [[menu.items]]
-label = "Wallpaper"
+label = "󰸉 Wallpaper"
 generator = "~/.config/dotmgr/scripts/wallpaper_toml.sh"
 
 [[menu.items]]
-label = "Font"
+label = "󰖨 Font"
 exec = "notify-send \"Fonts\" \"This feature is not implemented yet.\""
 
 [[menu]]
-label = "Packages"
+label = "󰏖 Packages"
 
 [[menu.items]]
-label = "Install"
+label = "󰉉 Install"
 exec = "~/.config/dotmgr/scripts/pkg_install.sh"
 visible = true
 
 [[menu.items]]
-label = "Remove"
+label = "󰆜 Remove"
 exec = "~/.config/dotmgr/scripts/pkg_remove.sh"
 visible = true
 
 [[menu.items]]
-label = "Query"
+label = "󰍛 Query"
 exec = "~/.config/dotmgr/scripts/pkg_query.sh"
 visible = true
 
 [[menu.items]]
-label = "Update"
+label = " Update"
 exec = "~/.config/dotmgr/scripts/pkg_update.sh"
 visible = true
 
 [[menu]]
-label = "System"
+label = " System"
 exec = "nofify-send \"System\" \"This feature is not implemented yet.\""
 
 [[menu]]
-label = "Power"
+label = " Power"
 
 [[menu.items]]
-label = "Lock"
+label = " Lock"
 exec = "hyprlock"
 
 [[menu.items]]
-label = "Logout"
+label = " Logout"
 exec = "hyprctl dispatch exit"
 
 [[menu.items]]
-label = "Suspend"
+label = "󰤄 Suspend"
 exec = "systemctl suspend"
 
 [[menu.items]]
-label = "Restart"
+label = "󰝳 Restart"
 exec = "systemctl reboot"
 
 [[menu.items]]
-label = "Shutdown"
+label = "󰐥 Shutdown"
 exec = "systemctl poweroff"
