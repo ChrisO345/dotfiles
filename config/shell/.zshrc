@@ -67,6 +67,7 @@ alias keystone='bash "$DOTFILES/keystone/keystone"'
 
 # OCaml
 [[ ! -r '~/.opam/opam-init/init.zsh' ]] || source '~/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+eval "$(opam env)"
 
 # Initialise Plugins
 eval "$(zoxide init zsh)"

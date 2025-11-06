@@ -1,0 +1,6 @@
+[colors]
+title = "#4a2c2c"    # border
+prompt = "#ff6b4a"   # selected-text accent
+item = "#d9afa7"     # text / foreground
+selected = "#000000" # background highlight
+help = "#d9afa7"     # muted text / subtle info

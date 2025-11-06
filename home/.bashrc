@@ -21,6 +21,9 @@ export HYPRSHOT_DIR="$HOME/pictures/screenshots"
 export GOPATH="$XDG_DATA_HOME/go"
 export GOBIN="$GOPATH/bin"
 
+# Load OPAM environment
+eval "$(opam env)"
+
 # If not running in a login shell, source the .bashrc file
 [[ $- != *i* ]] && return
 

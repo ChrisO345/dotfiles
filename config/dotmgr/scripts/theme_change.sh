@@ -33,6 +33,7 @@ change_background.sh "$next_wall"
 
 # Reload applications
 hyprctl reload
-# eww --restart open bar # This is done in change_background.sh
+pkill -SIGUSR2 ghostty
+# eww --restart open bar # This is done in change_background.sh to avoid the background overlap
 swaync-client -rs
 

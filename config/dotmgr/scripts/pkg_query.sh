@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+export PATH="$HOME/.config/dotmgr/scripts:$PATH"
+
 fzf_args=(
   --multi
   --preview 'echo "alt-i/I: toggle installed, alt-j/k: scroll, super-f: maximize"; echo; paru -Qi {1}'

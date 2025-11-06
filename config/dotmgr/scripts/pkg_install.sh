@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+export PATH="$HOME/.config/dotmgr/scripts:$PATH"
+
 fzf_args=(
   --multi
   --preview 'echo "alt-p: toggle description, alt-j/k: scroll, super-f: maximize"; echo; paru -Sii {1}'
@@ -10,10 +12,10 @@ fzf_args=(
   --height '100%'
 )
 
-pkg_name=$(paru -Slq | fzf "${fzf_args[@]}")
+pkg_names=$(paru -Slq | fzf "${fzf_args[@]}")
 
-if [[ -n "$pkg_name" ]]; then
-  paru -Sy --noconfirm "$pkg_name"
-  sudo updatedb
+if [[ -n "$pkg_names" ]]; then
+  echo "$pkg_names" | tr '\n' ' ' | xargs paru -Rns --noconfirm
+  # sudo updatedb
   dotfiles_done.sh
 fi
