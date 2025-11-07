@@ -29,11 +29,11 @@ echo "$1" > "$THEME_DIR/_current/current.txt"
 background_files=("$THEME_DIR/_current/walls/"*)
 next_wall="${background_files[0]}" # TODO: Update this so that the chosen wallpaper persists across theme changes
 
-change_background.sh "$next_wall"
+wallpaper_change.sh "$next_wall"
 
 # Reload applications
 hyprctl reload
 pkill -SIGUSR2 ghostty
-# eww --restart open bar # This is done in change_background.sh to avoid the background overlap
+# eww --restart open bar # This is done in wallpaper_change.sh to avoid the background overlap
 swaync-client -rs
 

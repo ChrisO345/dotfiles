@@ -1,8 +1,9 @@
 @import "/home/chris/.config/dotmgr/themes/_current/swaync.css";
+@import "/home/chris/.config/dotmgr/fonts/font.css";
 
 * {
   all: unset;
-  font-family: FiraCode Nerd Font;
+  font-family: var(--font-family);
   transition: 0.3s;
   font-size: 1.2rem;
 }

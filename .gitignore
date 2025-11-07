@@ -5,8 +5,11 @@ config/anyrun/lib/*.so
 config/eww/resources/*
 !config/eww/resources/example.conf
 
-# Exlude the current theme files
+# Exclude the current theme files
 config/dotmgr/themes/_current/*
+
+# Exclude the fonts folder
+config/dotmgr/fonts/*
 
 # Exclue the applications folder for now
 applications/*

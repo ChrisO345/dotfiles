@@ -27,6 +27,6 @@ for paper in ${wallpapers[@]}; do
 
   echo "[[items]]"
   echo "label = \"$paper_name\""
-  echo "exec = \"$HOME/.config/dotmgr/scripts/change_background.sh '$paper'\""
+  echo "exec = \"$HOME/.config/dotmgr/scripts/wallpaper_change.sh '$paper'\""
   echo ""
 done

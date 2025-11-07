@@ -9,16 +9,17 @@ visible = true
 label = " Style"
 
 [[menu.items]]
-label = "󰖧 Theme"
+label = "󰸌 Theme"
 generator = "~/.config/dotmgr/scripts/theme_toml.sh"
 
 [[menu.items]]
-label = "󰸉 Wallpaper"
+label = " Wallpaper"
 generator = "~/.config/dotmgr/scripts/wallpaper_toml.sh"
 
 [[menu.items]]
-label = "󰖨 Font"
-exec = "notify-send \"Fonts\" \"This feature is not implemented yet.\""
+label = " Font"
+# exec = "notify-send \"Fonts\" \"This feature is not implemented yet.\""
+generator = "~/.config/dotmgr/scripts/font_toml.sh"
 
 [[menu]]
 label = "󰏖 Packages"
