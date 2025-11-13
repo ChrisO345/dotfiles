@@ -40,6 +40,11 @@ exec = "~/.config/dotmgr/scripts/pkg_query.sh"
 visible = true
 
 [[menu.items]]
+label = "󰛳 Clean"
+exec = "~/.config/dotmgr/scripts/pkg_clean.sh"
+visible = true
+
+[[menu.items]]
 label = " Update"
 exec = "~/.config/dotmgr/scripts/pkg_update.sh"
 visible = true

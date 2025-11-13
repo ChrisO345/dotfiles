@@ -12,10 +12,10 @@ fzf_args=(
   --height '100%'
 )
 
-pkg_names=$(paru -Slq | fzf "${fzf_args[@]}")
+pkg_name=$(paru -Slq | fzf "${fzf_args[@]}")
 
-if [[ -n "$pkg_names" ]]; then
-  echo "$pkg_names" | tr '\n' ' ' | xargs paru -Rns --noconfirm
+if [[ -n "$pkg_name" ]]; then
+  paru -Sy --noconfirm "$pkg_name"
   # sudo updatedb
   dotfiles_done.sh
 fi
