@@ -18,7 +18,6 @@ generator = "~/.config/dotmgr/scripts/wallpaper_toml.sh"
 
 [[menu.items]]
 label = " Font"
-# exec = "notify-send \"Fonts\" \"This feature is not implemented yet.\""
 generator = "~/.config/dotmgr/scripts/font_toml.sh"
 
 [[menu]]

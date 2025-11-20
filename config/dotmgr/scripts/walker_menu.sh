@@ -109,7 +109,7 @@ show_wallpaper_menu() {
     return
   fi
   notify-send "Wallpaper Change" "Changing wallpaper to $chosen"
-  wallpaper_change.sh "$THEMES_PATH/${current_theme}/walls/$chosen"
+  change_background.sh "$THEMES_PATH/${current_theme}/walls/$chosen"
 }
 
 show_style_menu() {

@@ -24,6 +24,6 @@ for dir in "$THEMES_PATH"/*/; do
     echo "[[items]]"
     echo "label = \"$tidy\""
     echo "exec = \"$HOME/.config/dotmgr/scripts/theme_change.sh $theme_name\""
-    echo "visible = true"
+    echo "visible = false"
     echo ""
 done
