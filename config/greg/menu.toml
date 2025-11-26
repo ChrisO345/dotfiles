@@ -7,6 +7,7 @@ visible = true
 
 [[menu]]
 label = " Style"
+id = "style"
 
 [[menu.items]]
 label = "󰸌 Theme"
@@ -54,6 +55,7 @@ exec = "nofify-send \"System\" \"This feature is not implemented yet.\""
 
 [[menu]]
 label = " Power"
+id = "power"
 
 [[menu.items]]
 label = " Lock"

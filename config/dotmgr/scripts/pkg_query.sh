@@ -14,4 +14,4 @@ fzf_args=(
 )
 
 # Start with installed packages
-pkg_name=$(paru -Qqe | fzf "${fzf_args[@]}")
+paru -Qqe | fzf "${fzf_args[@]}"

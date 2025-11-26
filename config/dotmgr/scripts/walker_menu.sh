@@ -45,21 +45,21 @@ get_themes_menu() {
 
   # Read the current theme
   if [[ ! -f "$current_file" ]]; then
-      echo "Error: $current_file not found"
-      return 1
+    echo "Error: $current_file not found"
+    return 1
   fi
   current_theme=$(<"$current_file")
 
   for dir in "$THEMES_PATH"/*/; do
-      dir_name=$(basename "$dir")
-      [[ "$dir_name" == "_current" ]] && continue
-      theme_name="${dir_name}"
-      theme_name=$(echo "$theme_name" | tr '_' ' ' | awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) substr($i,2)}1')
-      if [[ "$dir_name" == "$current_theme" ]]; then
-        styled_curr=$theme_name
-      fi
-      echo "THEME: $theme_name"
-      themes+=("$theme_name")
+    dir_name=$(basename "$dir")
+    [[ "$dir_name" == "_current" ]] && continue
+    theme_name="${dir_name}"
+    theme_name=$(echo "$theme_name" | tr '_' ' ' | awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) substr($i,2)}1')
+    if [[ "$dir_name" == "$current_theme" ]]; then
+      styled_curr=$theme_name
+    fi
+    echo "THEME: $theme_name"
+    themes+=("$theme_name")
   done
 
   local chosen=$(menu "Themes" "$(printf '%s\n' "${themes[@]}")")
@@ -79,8 +79,8 @@ show_wallpaper_menu() {
 
   # Read the current theme
   if [[ ! -f "$current_file" ]]; then
-      echo "Error: $current_file not found"
-      return 1
+    echo "Error: $current_file not found"
+    return 1
   fi
   current_theme=$(<"$current_file")
 
@@ -94,7 +94,7 @@ show_wallpaper_menu() {
 
   # Get all the wallpapers in the current theme
   local wallpapers=("$THEMES_PATH/${current_theme}/walls/"*)
-  
+
   # Join the wallpaper names into a single\n string
   for wall in "${wallpapers[@]}"; do
     wall_name=$(basename "$wall")
@@ -123,11 +123,11 @@ show_style_menu() {
 
 show_package_menu() {
   case $(menu "Packages" "󰉉  Install\n󰆜  Remove\n󰍛  Query\n  Update") in
-    *Install*) terminal pkg_install.sh ;;
-    *Remove*) terminal pkg_remove.sh ;;
-    *Query*) terminal pkg_query.sh ;;
-    *Update*) terminal pkg_update.sh ;;
-    *) menu_back ;;
+  *Install*) terminal pkg_install.sh ;;
+  *Remove*) terminal pkg_remove.sh ;;
+  *Query*) terminal pkg_query.sh ;;
+  *Update*) terminal pkg_update.sh ;;
+  *) menu_back ;;
   esac
 }
 

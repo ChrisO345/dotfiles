@@ -2,6 +2,6 @@
 
 export PATH="$HOME/.config/dotmgr/scripts:$PATH"
 
-paru -Rns $(pacman -Qdtq) --noconfirm || true
+paru -Rns "$(pacman -Qdtq)" --noconfirm || true
 # sudo updatedb
 dotfiles_done.sh
