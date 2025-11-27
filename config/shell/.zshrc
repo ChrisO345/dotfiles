@@ -52,18 +52,18 @@ bindkey '^[[Z' reverse-menu-complete
 # History Navigation Bindings
 bindkey "^[[B" history-search-forward
 bindkey "^[[A" history-search-backward
-bindkey "^S" fzf-history-widget
+bindkey "^R" fzf-history-widget
 
 # Allow the use of extra ctrl keys
 bindkey "^[[3~" delete-char
 bindkey "^[[H" beginning-of-line
 bindkey "^[[F" end-of-line
 
+# TMUX
+bindkey -s '^f' "~/.config/tmux/scripts/session.sh\n"
+
 # Prompt Configuration
 NEWLINE=$'\n'
-
-# Dotfiles Installer Alias
-alias keystone='bash "$DOTFILES/keystone/keystone"'
 
 # OCaml
 [[ ! -r '~/.opam/opam-init/init.zsh' ]] || source '~/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null

@@ -13,3 +13,6 @@ config/dotmgr/fonts/*
 
 # Exclue the applications folder for now
 applications/*
+
+# Exclude the tmux plugins
+config/tmux/plugins/*
