@@ -34,5 +34,6 @@ wallpaper_change.sh "$next_wall"
 # Reload applications
 hyprctl reload
 pkill -SIGUSR2 ghostty
+tmux source-file "$XDG_CONFIG_HOME/tmux/tmux.conf"
 # eww --restart open bar # This is done in wallpaper_change.sh to avoid the background overlap
 swaync-client -rs
